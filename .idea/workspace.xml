@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74f2ee33-8b83-4637-abe1-f03efd64e25e" name="Changes" comment="" />
+    <list default="true" id="74f2ee33-8b83-4637-abe1-f03efd64e25e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/GameManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/EnemyBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EamilInvadersApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EamilInvadersApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EmaillInvaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EmaillInvaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Barrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/EmailInvaderView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/EmailInvaderView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/bullet.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/bullet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/laser1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/laser1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/laser_hit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/laser_hit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/css/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,12 +34,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <branch-grouping />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/controller/EmaillInvaderController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -29,29 +58,59 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/weuli/Projekte_Studium/EmailInvaders/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/weuli/Projekte_Studium/EmailInvaders/src/main/resources/com/lhebenbr/emailinvaders/assets/textures&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.lhebenbr.emailinvaders" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lhebenbr.emailinvaders" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="EamilInvadersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lhebenbr.emailinvaders.EamilInvadersApplication" />
+      <module name="EmailInvaders" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lhebenbr.emailinvaders.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EamilInvadersApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -63,10 +122,39 @@
       <updated>1699163631896</updated>
       <workItem from="1699163632949" duration="1176000" />
       <workItem from="1699200810086" duration="3189000" />
+      <workItem from="1699212500589" duration="13347000" />
+      <workItem from="1699228873434" duration="140000" />
+      <workItem from="1699229039766" duration="624000" />
+      <workItem from="1699637152815" duration="20544000" />
+      <workItem from="1699713563070" duration="8042000" />
+      <workItem from="1699724625350" duration="2498000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,5 +1,4 @@
 package com.lhebenbr.emailinvaders;
-import com.lhebenbr.emailinvaders.controller.EmaillInvaderController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
