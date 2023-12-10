@@ -16,8 +16,6 @@ public class EnemyFactory {
 
     private static Enemy createType1Enemy(double x, double y) {
         Enemy enemy = new Enemy(x, y);
-        enemy.setLife(1);
-        enemy.setAttackSpeed(1);
         enemy.setPoints(100);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_1.png"));
         return enemy;
@@ -25,8 +23,6 @@ public class EnemyFactory {
 
     private static Enemy createType2Enemy(double x, double y) {
         Enemy enemy = new Enemy(x, y);
-        enemy.setLife(2);
-        enemy.setAttackSpeed(2);
         enemy.setPoints(200);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_2.png"));
         return enemy;
@@ -34,8 +30,6 @@ public class EnemyFactory {
 
     private static Enemy createType3Enemy(double x, double y) {
         Enemy enemy = new Enemy(x, y);
-        enemy.setLife(3);
-        enemy.setAttackSpeed(3);
         enemy.setPoints(300);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_3.png"));
         return enemy;

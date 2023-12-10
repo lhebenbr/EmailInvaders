@@ -300,7 +300,7 @@ public class EmaillInvaderController {
 
     private void enemiesShoot() {
         for (Enemy enemy : enemies) {
-            if ((random.nextDouble() * enemy.getAttackSpeed()) < 0.01) {
+            if ((random.nextDouble()) < 0.0024) {
                 enemyBullets.add(new EnemyBullet(enemy.getX() + enemyX / 2, enemy.getY()));
             }
         }

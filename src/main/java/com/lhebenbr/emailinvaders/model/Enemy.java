@@ -8,28 +8,10 @@ public class Enemy {
         this.x = x;
         this.y = y;
     }
-    private int life;
-    private int attackSpeed;
     private int points;
     private double x;
     private double y;
     private Image image;
-
-    public int getLife() {
-        return life;
-    }
-
-    public void setLife(int life) {
-        this.life = life;
-    }
-
-    public int getAttackSpeed() {
-        return attackSpeed;
-    }
-
-    public void setAttackSpeed(int attackSpeed) {
-        this.attackSpeed = attackSpeed;
-    }
 
     public int getPoints() {
         return points;
