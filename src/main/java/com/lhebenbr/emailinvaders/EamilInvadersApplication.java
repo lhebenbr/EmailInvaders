@@ -16,9 +16,6 @@ public class EamilInvadersApplication extends Application {
         Font.loadFont(getClass().getResourceAsStream("assets/font/8bit_wonder.TTF"), 36);
         Parent root = loader.load();
 
-        // Zugriff auf den Controller
-        MenuController controller = loader.getController();
-        controller.setStage(primaryStage);
 
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         primaryStage.setTitle("Menu");

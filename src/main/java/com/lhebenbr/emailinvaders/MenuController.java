@@ -17,14 +17,10 @@ import static com.lhebenbr.emailinvaders.Config.HEIGHT;
 import static com.lhebenbr.emailinvaders.Config.WIDTH;
 
 public class MenuController {
-    private Stage stage;
 
     @FXML
     private Button startButton;
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
 
     public void initialize() {
         startButton.setFocusTraversable(true);
@@ -32,7 +28,7 @@ public class MenuController {
         fadeTransition.setFromValue(1.0); // Fully opaque
         fadeTransition.setToValue(0.0);   // Fully transparent
         fadeTransition.setCycleCount(Timeline.INDEFINITE);
-        fadeTransition.setAutoReverse(true); // This makes it fade in again
+        fadeTransition.setAutoReverse(true);
         fadeTransition.play();
 
         startButton.setOnKeyPressed(event -> {
@@ -49,6 +45,7 @@ public class MenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EmailInvaderView.fxml"));
             Parent gameRoot = loader.load();
             Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT);
+            Stage stage = (Stage) startButton.getScene().getWindow();
 
             stage.setScene(gameScene);
             stage.show();

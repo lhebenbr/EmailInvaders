@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 public class Enemy {
 
-    public Enemy(double x, double y) {
+    public Enemy(double x, double y, int width, int height) {
         this.x = x;
         this.y = y;
     }
@@ -12,6 +12,9 @@ public class Enemy {
     private double x;
     private double y;
     private Image image;
+
+    private int width;
+    private int height;
 
     public int getPoints() {
         return points;
@@ -43,5 +46,21 @@ public class Enemy {
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

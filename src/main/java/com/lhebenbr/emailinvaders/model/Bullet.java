@@ -23,18 +23,28 @@ public class Bullet {
     }
 
     public boolean collidesWith(Enemy enemy) {
-        // Holen Sie sich die Abmessungen des Geschosses
         double bulletWidth = x;
         double bulletHeight = y;
 
-        // Holen Sie sich die Abmessungen der Bonus-Email
-        double enemyWidth = enemy.getImage().getWidth();
-        double enemyHeight = enemy.getImage().getHeight();
+        double enemyWidth = enemy.getWidth();
+        double enemyHeight = enemy.getHeight();
 
-        // Prüfen Sie, ob sich die beiden Sprites überlappen
         return x < enemy.getX() + enemyWidth &&
                 x + bulletWidth > enemy.getX() &&
                 y < enemy.getY() + enemyHeight &&
                 y + bulletHeight > enemy.getY();
+    }
+
+    public boolean collidesWithBarrier(Barrier barrier) {
+        double bulletWidth = x;
+        double bulletHeight = y;
+
+        double enemyWidth = barrier.getWidth();
+        double enemyHeight = barrier.getHeight();
+
+        return x < barrier.getX() + enemyWidth &&
+                x + bulletWidth > barrier.getX() &&
+                y < barrier.getY() + enemyHeight &&
+                y + bulletHeight > barrier.getY();
     }
 }
