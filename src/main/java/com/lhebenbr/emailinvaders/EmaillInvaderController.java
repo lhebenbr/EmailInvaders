@@ -3,9 +3,13 @@ package com.lhebenbr.emailinvaders;
 import com.lhebenbr.emailinvaders.model.*;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 
 import java.util.ArrayList;
@@ -30,18 +34,31 @@ public class EmaillInvaderController {
     private double enemyY= 80;
     private double bulletX= 20;
     private double bulletY= 20;
-    private final double  playerShipSpeed = 7.0;
+    private final double  playerShipSpeed = 4.5;
     private final Player player = new Player(100,40);;
-    private double enemySpeed = 1.0; // Geschwindigkeit der Gegner
+    private double enemySpeed = 1; // Geschwindigkeit der Gegner
     private boolean enemyMovingRight = true; // Anfangsrichtung
     private Random random = new Random();
     private List<Bullet> bullets = new ArrayList<>();
     private List<EnemyBullet> enemyBullets = new ArrayList<>();
     private List<Enemy> enemies = new ArrayList<>();
     private List<Barrier> barriers = new ArrayList<>();
+    private double baseEnemySpeed = 1.0;
+
+    private int playerLives = 3;
+    private List<Image> heartImages = new ArrayList<>();
+    private Enemy bonusEmail;
+    private long bonusEmailTimer = 0;
+    private final long bonusEmailInterval = 30_000_000_000L;
+
 
 
     public void initialize() {
+
+        for (int i = 0; i < playerLives; i++) {
+            heartImages.add(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
+        }
+
         spawnPlayerShip();
         spawnBarriers();
         spawnEnemies();
@@ -85,6 +102,10 @@ public class EmaillInvaderController {
         new AnimationTimer() {
             @Override
             public void handle(long now) {
+                if (bonusEmail == null && now - bonusEmailTimer > bonusEmailInterval) {
+                    spawnBonusEmail();
+                    bonusEmailTimer = now; // Timer zurücksetzen
+                }
                 if (movingLeft && playerShipX > 0) {
                     playerShipX -= playerShipSpeed;
                 }
@@ -159,7 +180,7 @@ public class EmaillInvaderController {
     }
 
     private void shoot() {
-        long currentTime = System.nanoTime();
+        long currentTime = System.currentTimeMillis();
         if (player.canShoot(currentTime)){
             bullets.add(new Bullet(playerShipX + 45, playerShipY));
         }
@@ -217,13 +238,25 @@ public class EmaillInvaderController {
     }
 
     private void handlePlayerHit() {
-        //
+        playerLives--; // Ein Leben abziehen
+        if (playerLives <= 0) {
+            endGame(); // Spiel beenden, wenn keine Leben mehr vorhanden sind
+        }
     }
 
     private void checkCollisions() {
             Iterator<Bullet> bulletIterator = bullets.iterator();
             while (bulletIterator.hasNext()) {
                 Bullet bullet = bulletIterator.next();
+
+                if (bonusEmail != null && bullet.collidesWith(bonusEmail)) {
+                    bulletIterator.remove();
+                    bonusEmail = null;
+                    if(playerLives < 3) {
+                        playerLives++;
+                    }
+                    break;
+                }
 
                 Iterator<Enemy> enemyIterator = enemies.iterator();
                 while (enemyIterator.hasNext()) {
@@ -258,13 +291,16 @@ public class EmaillInvaderController {
                     }
                 }
             }
+
         }
 
     private void updateEnemyPositions() {
         double maxX = 0;
         double minX = gameCanvas.getWidth();
 
-        // Finden des am weitesten rechts und links befindlichen Gegners
+        // Anpassung der Gegnergeschwindigkeit basierend auf der Anzahl der verbleibenden Gegner
+        enemySpeed = baseEnemySpeed + (baseEnemySpeed * (1 - (double)enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
+
         for (Enemy enemy : enemies) {
             if (enemy.getX() > maxX) {
                 maxX = enemy.getX();
@@ -281,7 +317,6 @@ public class EmaillInvaderController {
             for (Enemy enemy : enemies) {
                 enemy.setY(enemy.getY() + enemyY); // Gegner eine Reihe nach unten bewegen
                 if (enemy.getY() + enemyY >= gameCanvas.getHeight()) {
-                    // Spielende, wenn Gegner den unteren Bildschirmrand erreichen
                     endGame();
                     return;
                 }
@@ -296,7 +331,16 @@ public class EmaillInvaderController {
                 enemy.setX(enemy.getX() - enemySpeed);
             }
         }
+
+        // Bonus-Email bewegen, falls vorhanden
+        if (bonusEmail != null) {
+            bonusEmail.setX(bonusEmail.getX() + 2);
+            if (bonusEmail.getX() > gameCanvas.getWidth()) {
+                bonusEmail = null; // Bonus-Email zurücksetzen, wenn sie den Bildschirm verlässt
+            }
+        }
     }
+
 
     private void enemiesShoot() {
         for (Enemy enemy : enemies) {
@@ -335,14 +379,44 @@ public class EmaillInvaderController {
         }
         for (EnemyBullet enemyBullet : enemyBullets) {
             gc.drawImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/bullet.png"), enemyBullet.getX(), enemyBullet.getY());
-
+        }
+        int heartX = (int) gameCanvas.getWidth() - 80;
+        int heartY = 10;
+        for (int i = 0; i < playerLives; i++) {
+            gc.drawImage(heartImages.get(i), heartX, heartY, 40, 40);
+            heartX -= 50;
+        }
+        // Bonus-Email zeichnen, falls vorhanden
+        if (bonusEmail != null) {
+            gc.drawImage(bonusEmail.getImage(), bonusEmail.getX(), bonusEmail.getY(),60,60);
         }
     }
 
 
     private void endGame() {
-        // Implementieren Sie Logik für das Spielende, z.B. Anzeigen eines Game Over Bildschirms
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOverView.fxml"));
+            Parent gameOverRoot = loader.load();
+
+            Scene gameOverScene = new Scene(gameOverRoot);
+
+            Stage stage = (Stage) gameCanvas.getScene().getWindow();
+
+            stage.setScene(gameOverScene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    private void spawnBonusEmail() {
+        Image bonusImage = new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_bonus.png");
+        bonusEmail = new Enemy( 0, 0);
+        bonusEmail.setImage(bonusImage);
+        bonusEmail.setX(-bonusImage.getWidth());
+        bonusEmail.setY(10);
+    }
+
 
 
 

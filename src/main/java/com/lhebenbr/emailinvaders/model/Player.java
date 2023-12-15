@@ -13,7 +13,7 @@ public class Player {
     private int height;
 
     public boolean canShoot(long currentTime) {
-        if (currentTime - lastTimeShot >= 1_000_000_000L/4) {
+        if (currentTime - lastTimeShot >= 500) {
             lastTimeShot = currentTime;
             return true;
         }

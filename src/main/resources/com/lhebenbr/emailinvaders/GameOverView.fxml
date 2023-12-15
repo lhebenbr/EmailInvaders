@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@css/style.css"
+            fx:controller="com.lhebenbr.emailinvaders.GameOverController"
+            prefHeight="1960" prefWidth="1080">
+
+    <Label text="Game Over" layoutX="450.0" layoutY="100.0" style="-fx-font-size: 80px; -fx-text-fill: yellow;" styleClass="custom-font"/>
+
+    <Text layoutX="100.0" layoutY="200.0" style="-fx-font-size: 20px; -fx-fill: white;">
+        Lieber E-Mail Benutzer,\n
+
+        Wir migrieren alle E-Mail-Konten auf neue Outlook Web App 2023. Daher müssen sich alle aktiven Kontoinhaber verifizieren und anmelden, damit Upgrades und Migrationen
+        jetzt automatisch wirksam werden. Dies geschieht, um die Sicherheit und Effizienz aufgrund der neusten empfangenen Spam-Nachrichten zu verbessern.
+
+        Um Dienstunterbrechungen zu vermeiden, klicken Sie bitte auf den folgenden Link, um ihre Beiträge zu aktualisieren
+        <Hyperlink text="Outlook Web App 2023" onAction="#openHyperlink"/>
+        und melden Sie sich an, um mehrere Spam-Mails zu migrieren und zu blockieren.
+
+        Wenn Sie ihr Konto nicht innerhalb von 24 Stunden übertragen, wird ihr Konto vorübergehend gesperrt, sodass Sie keine E-Mails mehr
+        empfangen oder senden können.
+
+        IKT-Helpdesk
+        Informationstechnologie
+    </Text>
+
+    <Button fx:id="restartButton" layoutX="650.0" layoutY="900.0" mnemonicParsing="false" text="Restart" style="-fx-background-color: transparent; -fx-font-size: 40px; -fx-text-fill: yellow;" styleClass="custom-font" onAction="#onRestartButtonClicked" />
+
+</AnchorPane>

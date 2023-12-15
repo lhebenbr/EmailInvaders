@@ -2,3 +2,8 @@
     -fx-background-image:
             url("../assets/textures/background.png")
 }
+
+.custom-font {
+    -fx-font-family: '8BIT WONDER';
+    -fx-font-size: 18px;
+}

@@ -9,6 +9,9 @@
             stylesheets="@css/style.css"
             fx:controller="com.lhebenbr.emailinvaders.MenuController"
             prefHeight="1960" prefWidth="1080">
-    <Button fx:id="startButton" layoutX="540.0" layoutY="380.0" mnemonicParsing="false" text="Start Game" style="-fx-background-color: transparent; -fx-font-size: 120px; -fx-text-fill: yellow;" onAction="#onStartButtonClicked" />
+
+    <Label text="Email Invaders" layoutX="450.0" layoutY="100.0" style="-fx-font-size: 80px; -fx-text-fill: yellow;" styleClass="custom-font"/>
+
+    <Button fx:id="startButton" layoutX="650.0" layoutY="480.0" mnemonicParsing="false" text="Start Game" style="-fx-background-color: transparent; -fx-font-size: 60px; -fx-text-fill: yellow;" styleClass="custom-font" onAction="#onStartButtonClicked" />
 
 </AnchorPane>
