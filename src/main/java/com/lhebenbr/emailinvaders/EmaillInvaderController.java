@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -24,6 +25,9 @@ public class EmaillInvaderController {
 
     @FXML
     private Canvas gameCanvas;
+
+    @FXML
+    private Text scoreText;
 
     private boolean movingLeft = false;
     private boolean movingRight = false;
@@ -51,11 +55,11 @@ public class EmaillInvaderController {
     private Enemy bonusEmail;
     private long bonusEmailTimer = 0;
     private final long bonusEmailInterval = 30_000_000_000L;
+    private int currentScore = 0;
 
 
 
     public void initialize() {
-
         for (int i = 0; i < playerLives; i++) {
             heartImages.add(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
         }
@@ -252,6 +256,7 @@ public class EmaillInvaderController {
 
             if (bonusEmail != null && bullet.collidesWith(bonusEmail)) {
                 bulletIterator.remove();
+                currentScore += bonusEmail.getPoints();
                 bonusEmail = null;
                 if(playerLives < 3) {
                     playerLives++;
@@ -267,6 +272,7 @@ public class EmaillInvaderController {
                         bullet.getX() + bulletX > enemy.getX() &&
                         bullet.getY() < enemy.getY() + enemyY &&
                         bullet.getY() + bulletY > enemy.getY()) {
+                    currentScore += enemy.getPoints();
                     // Kollision erkannt
                     bulletIterator.remove();
                     enemyIterator.remove();
@@ -365,6 +371,7 @@ public class EmaillInvaderController {
 
     private void redrawGameCanvas() {
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
+        scoreText.setText("Score: " + currentScore);
         gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight()); // Löscht den aktuellen Inhalt
         spawnPlayerShip(); // Zeichnet das Schiff an der neuen Position
         spawnBarriers(gc); // Zeichnet die Barrieren neu (falls sich etwas geändert hat)
@@ -399,6 +406,7 @@ public class EmaillInvaderController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOverView.fxml"));
             Parent gameOverRoot = loader.load();
+            GameManager.getInstance().updateScore(currentScore);
 
             Scene gameOverScene = new Scene(gameOverRoot);
 

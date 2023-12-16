@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -20,9 +21,12 @@ public class MenuController {
 
     @FXML
     private Button startButton;
+    @FXML
+    private Text highscoreText;
 
 
     public void initialize() {
+        highscoreText.setText("Highscore: " + String.valueOf(GameManager.getInstance().getHighScore()));
         startButton.setFocusTraversable(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), startButton);
         fadeTransition.setFromValue(1.0); // Fully opaque

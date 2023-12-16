@@ -34,17 +34,4 @@ public class Bullet {
                 y < enemy.getY() + enemyHeight &&
                 y + bulletHeight > enemy.getY();
     }
-
-    public boolean collidesWithBarrier(Barrier barrier) {
-        double bulletWidth = x;
-        double bulletHeight = y;
-
-        double enemyWidth = barrier.getWidth();
-        double enemyHeight = barrier.getHeight();
-
-        return x < barrier.getX() + enemyWidth &&
-                x + bulletWidth > barrier.getX() &&
-                y < barrier.getY() + enemyHeight &&
-                y + bulletHeight > barrier.getY();
-    }
 }

@@ -11,8 +11,6 @@ import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 
 import java.awt.*;
-import java.net.URI;
-
 public class GameOverController {
 
     @FXML
@@ -22,7 +20,11 @@ public class GameOverController {
     private TextFlow textFlow;
 
     @FXML
+    private Text highscoreText;
+
+    @FXML
     private void initialize() {
+        highscoreText.setText("Highscore: " + String.valueOf(GameManager.getInstance().getHighScore()));
 
         Text bodyContent = new Text("Lieber E-Mail Benutzer,\n\n" +
                 "Wir migrieren alle E-Mail-Konten auf neue Outlook Web App 2023.\n Daher müssen sich alle aktiven Kontoinhaber verifizieren und anmelden, \n " +

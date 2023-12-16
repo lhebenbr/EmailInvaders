@@ -11,7 +11,9 @@
 
     <Label text="Game Over" layoutX="600.0" layoutY="100.0" style="-fx-font-size: 80px; -fx-text-fill: yellow;" styleClass="custom-font"/>
 
-    <TextFlow fx:id="textFlow" layoutX="100.0" layoutY="300.0" style="-fx-font-size: 18px; -fx-text-fill: yellow;" styleClass="custom-font">
+    <Text fx:id="highscoreText" layoutX="650.0" layoutY="250.0" style="-fx-font-size: 50px; -fx-text-fill: yellow;" styleClass="custom-font"/>
+
+    <TextFlow fx:id="textFlow" layoutX="100.0" layoutY="400.0" style="-fx-font-size: 18px; -fx-text-fill: yellow;" styleClass="custom-font">
     </TextFlow>
 
 

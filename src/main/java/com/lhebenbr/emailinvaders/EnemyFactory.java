@@ -37,7 +37,7 @@ public class EnemyFactory {
 
     public static Enemy createBonusEnemey(double x, double y, int width, int height) {
         Enemy enemy = new Enemy(x, y, width, height);
-        enemy.setPoints(1000);
+        enemy.setPoints(600);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_bonus.png"));
         return enemy;
     }
