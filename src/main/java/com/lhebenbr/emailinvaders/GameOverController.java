@@ -49,7 +49,6 @@ public class GameOverController {
     @FXML
     private void onRestartButtonClicked() {
         try {
-            // MenuView laden und anzeigen
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
             Parent menuView = loader.load();
             Stage stage = (Stage) restartButton.getScene().getWindow();

@@ -44,7 +44,7 @@ public class EmaillInvaderController {
     private double enemySpeed = 1; // Geschwindigkeit der Gegner
     private boolean enemyMovingRight = true; // Anfangsrichtung
     private Random random = new Random();
-    private List<Bullet> bullets = new ArrayList<>();
+    private List<PlayerBullet> bullets = new ArrayList<>();
     private List<EnemyBullet> enemyBullets = new ArrayList<>();
     private List<Enemy> enemies = new ArrayList<>();
     private List<Barrier> barriers = new ArrayList<>();
@@ -187,7 +187,7 @@ public class EmaillInvaderController {
     private void shoot() {
         long currentTime = System.currentTimeMillis();
         if (player.canShoot(currentTime)){
-            bullets.add(new Bullet(playerShipX + 45, playerShipY));
+            bullets.add(new PlayerBullet(playerShipX + 45, playerShipY,8.0));
         }
     }
 
@@ -226,9 +226,9 @@ public class EmaillInvaderController {
             }
 
             // Kollision mit Spieler-Geschossen
-            Iterator<Bullet> playerBulletIterator = bullets.iterator();
+            Iterator<PlayerBullet> playerBulletIterator = bullets.iterator();
             while (playerBulletIterator.hasNext()) {
-                Bullet playerBullet = playerBulletIterator.next();
+                PlayerBullet playerBullet = playerBulletIterator.next();
                 if (bullet.getX() < playerBullet.getX() + bulletX &&
                         bullet.getX() + bulletX > playerBullet.getX() &&
                         bullet.getY() < playerBullet.getY() + bulletY &&
@@ -250,9 +250,9 @@ public class EmaillInvaderController {
     }
 
     private void checkCollisions() {
-        Iterator<Bullet> bulletIterator = bullets.iterator();
+        Iterator<PlayerBullet> bulletIterator = bullets.iterator();
         while (bulletIterator.hasNext()) {
-            Bullet bullet = bulletIterator.next();
+            PlayerBullet bullet = bulletIterator.next();
 
             if (bonusEmail != null && bullet.collidesWith(bonusEmail)) {
                 bulletIterator.remove();
@@ -353,7 +353,7 @@ public class EmaillInvaderController {
         double shootProbability = calculateShootProbability();
         for (Enemy enemy : enemies) {
             if ((random.nextDouble()) < shootProbability) {
-                enemyBullets.add(new EnemyBullet(enemy.getX() + enemyX / 2, enemy.getY()));
+                enemyBullets.add(new EnemyBullet(enemy.getX() + enemyX / 2, enemy.getY(),5.0));
             }
         }
     }
@@ -376,9 +376,9 @@ public class EmaillInvaderController {
         spawnPlayerShip(); // Zeichnet das Schiff an der neuen Position
         spawnBarriers(gc); // Zeichnet die Barrieren neu (falls sich etwas geändert hat)
         spawnEnemies(gc); // Zeichnet die Gegner neu
-        Iterator<Bullet> it = bullets.iterator();
+        Iterator<PlayerBullet> it = bullets.iterator();
         while (it.hasNext()) {
-            Bullet bullet = it.next();
+            PlayerBullet bullet = it.next();
             bullet.update();
             if (bullet.getY() < 0) {
                 it.remove();
@@ -431,7 +431,7 @@ public class EmaillInvaderController {
         double multiplier = 1.0 + (1.0 - (double)enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS));
 
         // Maximalwert
-        double maxProbability = 0.05;
+        double maxProbability = 0.2;
 
         return Math.min(baseProbability * multiplier, maxProbability);
     }

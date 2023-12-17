@@ -12,7 +12,6 @@ public class Enemy {
     private double x;
     private double y;
     private Image image;
-
     private int width;
     private int height;
 

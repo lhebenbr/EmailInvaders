@@ -1,25 +1,43 @@
 package com.lhebenbr.emailinvaders.model;
 
-public class Bullet {
-    private double x;
-    private double y;
-    private final double speed = 8.0;
+public abstract class Bullet {
 
-    public Bullet(double x, double y) {
+    protected double x;
+    protected double y;
+    protected double speed;
+
+    public Bullet(double x, double y, double speed) {
         this.x = x;
         this.y = y;
+        this.speed = speed;
     }
 
     public void update() {
-        y -= speed;
+        //
     }
 
     public double getX() {
         return x;
     }
 
+    public void setX(double x) {
+        this.x = x;
+    }
+
     public double getY() {
         return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 
     public boolean collidesWith(Enemy enemy) {
