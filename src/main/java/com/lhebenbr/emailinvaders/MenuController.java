@@ -8,13 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.io.IOException;
 
 import static com.lhebenbr.emailinvaders.Config.HEIGHT;
@@ -26,8 +23,9 @@ public class MenuController {
     @FXML
     private Button startButton;
     @FXML
+    private Button exitButton;
+    @FXML
     private Text highscoreText;
-
 
 
     public void initialize() {
@@ -61,5 +59,11 @@ public class MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void onExitButtonClicked() {
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        GameManager.exitGame(stage);
     }
 }
