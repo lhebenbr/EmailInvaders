@@ -167,7 +167,7 @@
       <workItem from="1702847923634" duration="727000" />
       <workItem from="1702851010915" duration="897000" />
       <workItem from="1702861405933" duration="2761000" />
-      <workItem from="1702901986534" duration="10316000" />
+      <workItem from="1702901986534" duration="18221000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -209,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702849772215</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactoring">
+      <option name="closed" value="true" />
+      <created>1702912808712</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702912808712</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +250,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="update highscore" />
     <MESSAGE value="update sound modelle" />
-    <option name="LAST_COMMIT_MESSAGE" value="update sound modelle" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

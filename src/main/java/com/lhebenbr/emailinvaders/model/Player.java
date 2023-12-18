@@ -11,13 +11,13 @@ public class Player extends Entity {
 
     private long lastTimeShot = 0;
     private int speed;
-    private int life;
+    private final List<Image> life = new ArrayList<>();
     private final List<PlayerBullet> bullets = new ArrayList<>();
 
-    public Player(double x, double y, Image image, int width, int height, int speed, int life) {
+    public Player(double x, double y, Image image, int width, int height, int speed) {
         super(x, y, image, width, height);
         this.speed = speed;
-        this.life = life;
+        initLife();
     }
 
     public boolean canShoot(long currentTime) {
@@ -36,21 +36,21 @@ public class Player extends Entity {
         this.speed = speed;
     }
 
-    public int getLife() {
+    public List<Image> getLife() {
         return life;
     }
 
     public void loseLife() {
-        this.life--;
+        if (!life.isEmpty()) {
+            life.remove(life.size() - 1);
+        }
     }
 
     public void addLife() {
-        this.life++;
+        life.add(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
+        ;
     }
 
-    public void setLife(int live) {
-        this.life = live;
-    }
 
     public List<PlayerBullet> getBullets() {
         return bullets;
@@ -58,9 +58,16 @@ public class Player extends Entity {
 
     public void shoot() {
         long currentTime = System.currentTimeMillis();
-        if (canShoot(currentTime)){
-            bullets.add(new PlayerBullet(x + 45, y,BULLET_WIDTH,BULLET_HEIGHT,BULLET_SPEED));
+        if (canShoot(currentTime)) {
+            bullets.add(new PlayerBullet(x + 45, y, BULLET_WIDTH, BULLET_HEIGHT, BULLET_SPEED));
         }
     }
+
+    private void initLife() {
+        for (int i = 0; i < START_LIVES; i++) {
+            life.add(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
+        }
+    }
+
 
 }

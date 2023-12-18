@@ -1,10 +1,13 @@
 package com.lhebenbr.emailinvaders.model;
 
+import javafx.scene.image.Image;
+
 public class PlayerBullet extends Bullet{
 
 
     public PlayerBullet(double x, double y, int width, int height, double speed) {
         super(x, y, width, height, speed);
+        image = new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/laser1.png");
     }
 
     @Override

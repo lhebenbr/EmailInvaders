@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 import static com.lhebenbr.emailinvaders.Config.*;
-import static com.lhebenbr.emailinvaders.Config.BULLET_SPEED;
 
 public class Enemy extends Entity {
 
@@ -15,7 +14,7 @@ public class Enemy extends Entity {
     private double speed;
     private final List<EnemyBullet> enemyBullets = new ArrayList<>();
 
-    public Enemy(double x, double y, Image image, int width, int height, int points,int speed) {
+    public Enemy(double x, double y, Image image, int width, int height, int points, int speed) {
         super(x, y, image, width, height);
         this.points = points;
         this.speed = speed;
@@ -52,7 +51,7 @@ public class Enemy extends Entity {
         double shootProbability = calculateShootProbability(enemies);
         for (Enemy enemy : enemies) {
             if ((random.nextDouble()) < shootProbability) {
-                enemy.getEnemyBullets().add(new EnemyBullet(enemy.getX() + ENEMY_WIDTH / 2, enemy.getY(),BULLET_WIDTH,BULLET_HEIGHT, BULLET_SPEED));
+                enemy.getEnemyBullets().add(new EnemyBullet(enemy.getX() + ENEMY_WIDTH / 2, enemy.getY(), BULLET_WIDTH, BULLET_HEIGHT, BULLET_SPEED));
             }
         }
     }
@@ -62,10 +61,10 @@ public class Enemy extends Entity {
         double baseProbability = 0.0001;
 
         // Erhöhte Wahrscheinlichkeit, wenn weniger Gegner vorhanden sind
-        double multiplier = 1.0 + (1.0 - ((double)enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
+        double multiplier = 1.0 + (1.0 - ((double) enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
 
         // Maximalwert
-        double maxProbability = 0.00025;
+        double maxProbability = 0.0004;
 
         return Math.min(baseProbability * multiplier, maxProbability);
     }
