@@ -1,11 +1,11 @@
 package com.lhebenbr.emailinvaders.model;
 
-import javafx.scene.image.Image;
+import com.lhebenbr.emailinvaders.ImageCache;
 
 public class EnemyBullet extends Bullet {
-    public EnemyBullet(double x, double y,int width, int height, double speed) {
-        super(x, y,width,height, speed);
-        image = new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/bullet.png");
+    public EnemyBullet(double x, double y, int width, int height, double speed) {
+        super(x, y, width, height, speed);
+        image = ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/bullet.png");
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.lhebenbr.emailinvaders.model;
 
+import com.lhebenbr.emailinvaders.ImageCache;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class Player extends Entity {
     }
 
     public void addLife() {
-        life.add(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
+        life.add(ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
         ;
     }
 
@@ -65,7 +66,7 @@ public class Player extends Entity {
 
     private void initLife() {
         for (int i = 0; i < START_LIVES; i++) {
-            life.add(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
+            life.add(ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
         }
     }
 

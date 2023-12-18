@@ -46,7 +46,7 @@ public class EmaillInvaderController {
     public void initialize() {
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
         EmailInvaderRenderer renderer = new EmailInvaderRenderer(gc);
-        player = new Player(PLAYER_START_X, PLAYER_START_Y, new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_SPEED);
+        player = new Player(PLAYER_START_X, PLAYER_START_Y, ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_SPEED);
         spawnBarriers();
         spawnEnemies();
 
@@ -97,7 +97,7 @@ public class EmaillInvaderController {
 
 
     private void spawnBarriers() {
-        Image image = new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/barrier_1.png");
+        Image image = ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/barrier_1.png");
         int startWidth = 150;
         int barrierWidth = 200;
         int barrierHeight = 70;
@@ -118,7 +118,7 @@ public class EmaillInvaderController {
 
     private Image selectBarrierImage(Barrier barrier) {
         int i = barrier.getHealth() <= 10 ? 3 : barrier.getHealth() <= 20 ? 2 : 1;
-        Image barrierImage = new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/barrier_" + i + ".png");
+        Image barrierImage = ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/barrier_" + i + ".png");
         return barrierImage;
     }
 
