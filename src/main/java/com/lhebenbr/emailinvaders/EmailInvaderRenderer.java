@@ -48,6 +48,12 @@ public class EmailInvaderRenderer {
         }
     }
 
+    public void renderBonusDrops(List<Bonus> bonusDrops) {
+        for (Bonus bonus : bonusDrops) {
+            gc.drawImage(bonus.getImage(), bonus.getX(), bonus.getY(), bonus.getWidth(), bonus.getHeight());
+        }
+    }
+
     public void renderHearts(Player player) {
         if (!player.getLife().isEmpty()) {
             int heartX = HEART_X - (50 * (player.getLife().size() - 3));

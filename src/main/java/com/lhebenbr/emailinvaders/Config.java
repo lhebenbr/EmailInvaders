@@ -1,7 +1,9 @@
 package com.lhebenbr.emailinvaders;
 
 public final class Config {
-    private Config() {}
+    private Config() {
+    }
+
     public static final int WIDTH = 1920;
     public static final int HEIGHT = 1080;
     public static final int ENEMIES_PER_ROW = 10;
@@ -22,12 +24,16 @@ public final class Config {
     public static final int BULLET_WIDTH = 20;
     public static final int BULLET_HEIGHT = 20;
     public static final int BULLET_SPEED = 13;
-    public static final int HEART_X =1880;
+    public static final int HEART_X = 1880;
     public static final int HEART_Y = 10;
     public static final int HEART_WIDTH = 40;
     public static final int HEART_HEIGHT = 40;
     public static final int BONUS_MAIL_WIDTH = 60;
     public static final int BONUS_MAIL_HEIGHT = 60;
     public static final int BONUS_MAIL_SPEED = 2;
-
+    public static final int BONUS_DROP_WIDTH = 50;
+    public static final int BONUS_DROP_HEIGHT = 50;
+    public static final int BONUS_DROP_SPEED = 3;
+    public static final long BONUS_DROP_SPAWN_TIME = 3_000_000_000L;
+    public static final long BONUS_MAIL_SPAWN_TIME = 30_000_000_000L;
 }
