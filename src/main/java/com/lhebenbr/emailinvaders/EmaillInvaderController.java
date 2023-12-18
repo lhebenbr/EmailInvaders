@@ -18,8 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import static com.lhebenbr.emailinvaders.Config.ENEMIES_PER_ROW;
-import static com.lhebenbr.emailinvaders.Config.ENEMY_ROWS;
+import static com.lhebenbr.emailinvaders.Config.*;
 
 public class EmaillInvaderController {
 
@@ -32,27 +31,13 @@ public class EmaillInvaderController {
     private boolean movingLeft = false;
     private boolean movingRight = false;
     private boolean isSpacePressed = false;
-    private double playerShipX = 960;
-    private double playerShipY = 910;
-
-    private double enemyX= 80;
-    private double enemyY= 80;
-    private double bulletX= 20;
-    private double bulletY= 20;
-    private final double  playerShipSpeed = 4.5;
-    private final Player player = new Player(100,40);;
-    private double enemySpeed = 1; // Geschwindigkeit der Gegner
     private boolean enemyMovingRight = true; // Anfangsrichtung
-    private Random random = new Random();
-    private List<PlayerBullet> bullets = new ArrayList<>();
-    private List<EnemyBullet> enemyBullets = new ArrayList<>();
-    private List<Enemy> enemies = new ArrayList<>();
-    private List<Barrier> barriers = new ArrayList<>();
-    private double baseEnemySpeed = 1.0;
-
-    private int playerLives = 3;
-    private List<Image> heartImages = new ArrayList<>();
+    private final List<Enemy> enemies = new ArrayList<>();
+    private final List<Barrier> barriers = new ArrayList<>();
+    private final List<Image> heartImages = new ArrayList<>();
     private Enemy bonusEmail;
+    private Player player;
+    private final Random random = new Random();
     private long bonusEmailTimer = 0;
     private final long bonusEmailInterval = 30_000_000_000L;
     private int currentScore = 0;
@@ -60,7 +45,9 @@ public class EmaillInvaderController {
 
 
     public void initialize() {
-        for (int i = 0; i < playerLives; i++) {
+        player= new Player(PLAYER_START_X, PLAYER_START_Y, new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT,PLAYER_SPEED, START_LIVES);
+
+        for (int i = 0; i < player.getLife(); i++) {
             heartImages.add(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart.png"));
         }
 
@@ -79,7 +66,7 @@ public class EmaillInvaderController {
                     break;
                 case SPACE:
                     if (!isSpacePressed) {
-                        shoot();
+                        player.shoot();
                     }
                     isSpacePressed = true;
                     break;
@@ -111,19 +98,22 @@ public class EmaillInvaderController {
                     spawnBonusEmail();
                     bonusEmailTimer = now;
                 }
-                if (movingLeft && playerShipX > 0) {
-                    playerShipX -= playerShipSpeed;
+                if (movingLeft && player.getX() > 0) {
+                    player.setX(player.getX() - player.getSpeed());
                 }
-                if (movingRight && playerShipX < gameCanvas.getWidth() - player.getWidth()) {
-                    playerShipX += playerShipSpeed;
+                if (movingRight && player.getX() < gameCanvas.getWidth() - player.getWidth()) {
+                    player.setX(player.getX() + player.getSpeed());
                 }
-                enemiesShoot();
+                enemies.forEach(enemy -> enemy.enemyShoot(enemies, random));
                 updateEnemyPositions();
                 updateEnemyBullets();
                 checkCollisions();
                 checkEnemyBulletCollisions();
                 if (enemies.isEmpty()) {
                     spawnEnemies();
+                }
+                if(barriers.isEmpty() && currentScore % 5000 == 0) {
+                    spawnBarriers();
                 }
                 redrawGameCanvas();
             }
@@ -136,17 +126,17 @@ public class EmaillInvaderController {
     private void spawnPlayerShip() {
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
         Image image = new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/ship.png");
-        gc.drawImage(image, playerShipX, playerShipY);
+        gc.drawImage(image, player.getX(), player.getY());
     }
 
     private void spawnBarriers() {
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
         Image image = new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/barrier_1.png");
         int startWidth = 150;
-        double barrierWidth = 200;
-        double barrierHeight = 70;
+        int barrierWidth = 200;
+        int barrierHeight = 70;
         for (int i = 0; i < 4; i++) {
-            barriers.add(new Barrier(startWidth, 810, barrierWidth, barrierHeight));
+            barriers.add(new Barrier(startWidth, 810, image, barrierWidth, barrierHeight,30));
             gc.drawImage(image, startWidth, 810, barrierWidth, barrierHeight);
             startWidth += 480;
         }
@@ -178,88 +168,72 @@ public class EmaillInvaderController {
         }
     }
 
-    private void spawnEnemies(GraphicsContext gc) {
-        for (Enemy enemy : enemies) {
-            gc.drawImage(enemy.getImage(), enemy.getX(), enemy.getY(), 80, 80);
-        }
-    }
-
-    private void shoot() {
-        long currentTime = System.currentTimeMillis();
-        if (player.canShoot(currentTime)){
-            bullets.add(new PlayerBullet(playerShipX + 45, playerShipY,8.0));
-        }
+    private void spawnBonusEmail() {
+        bonusEmail = EnemyFactory.createBonusEnemey( 0, 10, 60, 60);
     }
 
     private void checkEnemyBulletCollisions() {
-        Iterator<EnemyBullet> bulletIterator = enemyBullets.iterator();
-        while (bulletIterator.hasNext()) {
-            EnemyBullet bullet = bulletIterator.next();
+        for(Enemy enemy : enemies) {
+            Iterator<EnemyBullet> bulletIterator = enemy.getEnemyBullets().iterator();
+            while (bulletIterator.hasNext()) {
+                EnemyBullet bullet = bulletIterator.next();
 
-            // Kollision mit dem Spieler
-            if (bullet.getX() < playerShipX + player.getWidth() &&
-                    bullet.getX() + bulletX > playerShipX &&
-                    bullet.getY() < playerShipY + player.getHeight() &&
-                    bullet.getY() + bulletY > playerShipY) {
-                // Treffer am Spieler
-                bulletIterator.remove();
-                handlePlayerHit(); // Implementieren Sie diese Methode entsprechend
-                continue;
-            }
+                // Kollision mit dem Spieler
+                if (CollisionManager.checkCollision(player, bullet)) {
 
-            // Kollision mit Barrieren
-            Iterator<Barrier> barrierIterator = barriers.iterator();
-            while (barrierIterator.hasNext()) {
-                Barrier barrier = barrierIterator.next();
-                if (bullet.getX() < barrier.getX() + barrier.getWidth() &&
-                        bullet.getX() + bulletX > barrier.getX() &&
-                        bullet.getY() < barrier.getY() + barrier.getHeight() &&
-                        bullet.getY() + bulletY > barrier.getY()) {
-                    // Treffer an einer Barriere
                     bulletIterator.remove();
-                    barrier.takeDamage();
-                    if (barrier.isDestroyed()) {
-                        barrierIterator.remove();
-                    }
-                    break;
+                    handlePlayerHit();
+                    continue;
                 }
-            }
 
-            // Kollision mit Spieler-Geschossen
-            Iterator<PlayerBullet> playerBulletIterator = bullets.iterator();
-            while (playerBulletIterator.hasNext()) {
-                PlayerBullet playerBullet = playerBulletIterator.next();
-                if (bullet.getX() < playerBullet.getX() + bulletX &&
-                        bullet.getX() + bulletX > playerBullet.getX() &&
-                        bullet.getY() < playerBullet.getY() + bulletY &&
-                        bullet.getY() + bulletY > playerBullet.getY()) {
-                    // Treffer eines Spieler-Geschosses
-                    bulletIterator.remove();
-                    playerBulletIterator.remove();
-                    break;
+                // Kollision mit Barrieren
+                Iterator<Barrier> barrierIterator = barriers.iterator();
+                while (barrierIterator.hasNext()) {
+                    Barrier barrier = barrierIterator.next();
+                    if (CollisionManager.checkCollision(barrier, bullet)) {
+                        // Treffer an einer Barriere
+                        bulletIterator.remove();
+                        barrier.takeDamage();
+                        if (barrier.isDestroyed()) {
+                            barrierIterator.remove();
+                        }
+                        break;
+                    }
+                }
+
+                // Kollision mit Spieler-Geschossen
+                Iterator<PlayerBullet> playerBulletIterator = player.getBullets().iterator();
+                while (playerBulletIterator.hasNext()) {
+                    PlayerBullet playerBullet = playerBulletIterator.next();
+                    if (CollisionManager.checkCollision(playerBullet, bullet)) {
+                        // Treffer eines Spieler-Geschosses
+                        bulletIterator.remove();
+                        playerBulletIterator.remove();
+                        break;
+                    }
                 }
             }
         }
     }
 
     private void handlePlayerHit() {
-        playerLives--; // Ein Leben abziehen
-        if (playerLives <= 0) {
-            endGame(); // Spiel beenden, wenn keine Leben mehr vorhanden sind
+        player.loseLife();
+        if (player.getLife() <= 0) {
+            gameOver();
         }
     }
 
     private void checkCollisions() {
-        Iterator<PlayerBullet> bulletIterator = bullets.iterator();
+        Iterator<PlayerBullet> bulletIterator = player.getBullets().iterator();
         while (bulletIterator.hasNext()) {
             PlayerBullet bullet = bulletIterator.next();
 
-            if (bonusEmail != null && bullet.collidesWith(bonusEmail)) {
+            if (bonusEmail != null && CollisionManager.checkCollision(bonusEmail,bullet)) {
                 bulletIterator.remove();
                 currentScore += bonusEmail.getPoints();
                 bonusEmail = null;
-                if(playerLives < 3) {
-                    playerLives++;
+                if(player.getLife() < 3) {
+                    player.addLife();
                 }
                 break;
             }
@@ -268,15 +242,10 @@ public class EmaillInvaderController {
             while (enemyIterator.hasNext()) {
                 Enemy enemy = enemyIterator.next();
 
-                if (bullet.getX() < enemy.getX() + enemyX &&
-                        bullet.getX() + bulletX > enemy.getX() &&
-                        bullet.getY() < enemy.getY() + enemyY &&
-                        bullet.getY() + bulletY > enemy.getY()) {
+                if (CollisionManager.checkCollision(enemy, bullet)) {
                     currentScore += enemy.getPoints();
-                    // Kollision erkannt
                     bulletIterator.remove();
                     enemyIterator.remove();
-                    // Weitere Aktionen bei Kollision (z.B. Punkte erhöhen)
                     break;
                 }
             }
@@ -284,11 +253,7 @@ public class EmaillInvaderController {
             while (barrierIterator.hasNext()) {
                 Barrier barrier = barrierIterator.next();
 
-                if (bullet.getX() < barrier.getX() + barrier.getWidth() &&
-                        bullet.getX() + bulletX > barrier.getX() &&
-                        bullet.getY() < barrier.getY() + barrier.getHeight() &&
-                        bullet.getY() + bulletY > barrier.getY()) {
-                    // Kollision mit einer Barriere erkannt
+                if (CollisionManager.checkCollision(barrier, bullet)) {
                     bulletIterator.remove();
                     barrier.takeDamage();
                     if (barrier.isDestroyed()) {
@@ -306,9 +271,11 @@ public class EmaillInvaderController {
         double minX = gameCanvas.getWidth();
 
         // Anpassung der Gegnergeschwindigkeit basierend auf der Anzahl der verbleibenden Gegner
-        enemySpeed = baseEnemySpeed + (baseEnemySpeed * Math.round(1 - (double)enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
+        double baseEnemySpeed = 1.0;
+        double speed = baseEnemySpeed + (baseEnemySpeed * Math.round(1 - (double)enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
 
         for (Enemy enemy : enemies) {
+            enemy.setSpeed(speed);
             if (enemy.getX() > maxX) {
                 maxX = enemy.getX();
             }
@@ -318,13 +285,13 @@ public class EmaillInvaderController {
         }
 
         // Prüfen, ob die Gegner umkehren müssen
-        if ((enemyMovingRight && maxX + enemyX + enemySpeed > gameCanvas.getWidth()) ||
-                (!enemyMovingRight && minX - enemySpeed < 0)) {
+        if ((enemyMovingRight && maxX + ENEMY_WIDTH + speed > gameCanvas.getWidth()) ||
+                (!enemyMovingRight && minX - speed < 0)) {
             enemyMovingRight = !enemyMovingRight;
             for (Enemy enemy : enemies) {
-                enemy.setY(enemy.getY() + enemyY); // Gegner eine Reihe nach unten bewegen
-                if (enemy.getY() + enemyY >= gameCanvas.getHeight()) {
-                    endGame();
+                enemy.setY(enemy.getY() + ENEMY_HEIGHT); // Gegner eine Reihe nach unten bewegen
+                if (enemy.getY() + ENEMY_HEIGHT >= gameCanvas.getHeight()) {
+                    gameOver();
                     return;
                 }
             }
@@ -333,15 +300,15 @@ public class EmaillInvaderController {
         // Gegner horizontal bewegen
         for (Enemy enemy : enemies) {
             if (enemyMovingRight) {
-                enemy.setX(enemy.getX() + enemySpeed);
+                enemy.setX(enemy.getX() + speed);
             } else {
-                enemy.setX(enemy.getX() - enemySpeed);
+                enemy.setX(enemy.getX() - speed);
             }
         }
 
         // Bonus-Email bewegen, falls vorhanden
         if (bonusEmail != null) {
-            bonusEmail.setX(bonusEmail.getX() + 2);
+            bonusEmail.setX(bonusEmail.getX() + BONUS_MAIL_SPEED);
             if (bonusEmail.getX() > gameCanvas.getWidth()) {
                 bonusEmail = null;
             }
@@ -349,22 +316,17 @@ public class EmaillInvaderController {
     }
 
 
-    private void enemiesShoot() {
-        double shootProbability = calculateShootProbability();
-        for (Enemy enemy : enemies) {
-            if ((random.nextDouble()) < shootProbability) {
-                enemyBullets.add(new EnemyBullet(enemy.getX() + enemyX / 2, enemy.getY(),5.0));
-            }
-        }
-    }
+
 
     private void updateEnemyBullets() {
-        Iterator<EnemyBullet> it = enemyBullets.iterator();
-        while (it.hasNext()) {
-            EnemyBullet bullet = it.next();
-            bullet.update();
-            if (bullet.getY() > gameCanvas.getHeight()) {
-                it.remove(); // Entfernt das Geschoss, wenn es den unteren Bildschirmrand erreicht
+        for (Enemy enemy : enemies) {
+            Iterator<EnemyBullet> it = enemy.getEnemyBullets().iterator();
+            while (it.hasNext()) {
+                EnemyBullet bullet = it.next();
+                bullet.update();
+                if (bullet.getY() > gameCanvas.getHeight()) {
+                    it.remove(); // Entfernt das Geschoss, wenn es den unteren Bildschirmrand erreicht
+                }
             }
         }
     }
@@ -376,7 +338,7 @@ public class EmaillInvaderController {
         spawnPlayerShip(); // Zeichnet das Schiff an der neuen Position
         spawnBarriers(gc); // Zeichnet die Barrieren neu (falls sich etwas geändert hat)
         spawnEnemies(gc); // Zeichnet die Gegner neu
-        Iterator<PlayerBullet> it = bullets.iterator();
+        Iterator<PlayerBullet> it = player.getBullets().iterator();
         while (it.hasNext()) {
             PlayerBullet bullet = it.next();
             bullet.update();
@@ -386,25 +348,26 @@ public class EmaillInvaderController {
                 gc.drawImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/laser1.png"), bullet.getX(), bullet.getY());
             }
         }
-        for (EnemyBullet enemyBullet : enemyBullets) {
-            gc.drawImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/bullet.png"), enemyBullet.getX(), enemyBullet.getY());
+        for(Enemy enemy : enemies) {
+            for (EnemyBullet enemyBullet : enemy.getEnemyBullets()) {
+                gc.drawImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/bullet.png"), enemyBullet.getX(), enemyBullet.getY());
+            }
         }
-        int heartX = (int) gameCanvas.getWidth() - 80;
-        int heartY = 10;
-        for (int i = 0; i < playerLives; i++) {
-            gc.drawImage(heartImages.get(i), heartX, heartY, 40, 40);
+           int heartX = HEART_X;
+        for (int i = 0; i < player.getLife(); i++) {
+            gc.drawImage(heartImages.get(i), heartX, HEART_Y, HEART_WIDTH, HEART_HEIGHT);
             heartX -= 50;
         }
         // Bonus-Email zeichnen, falls vorhanden
         if (bonusEmail != null) {
-            gc.drawImage(bonusEmail.getImage(), bonusEmail.getX(), bonusEmail.getY(),60,60);
+            gc.drawImage(bonusEmail.getImage(), bonusEmail.getX(), bonusEmail.getY(),BONUS_MAIL_WIDTH,BONUS_MAIL_HEIGHT);
         }
     }
 
 
-    private void endGame() {
+    private void gameOver() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOverView.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("GameOverView.fxml"));
             Parent gameOverRoot = loader.load();
             GameManager.getInstance().updateScore(currentScore);
 
@@ -419,21 +382,13 @@ public class EmaillInvaderController {
         }
     }
 
-    private void spawnBonusEmail() {
-        bonusEmail = EnemyFactory.createBonusEnemey( 0, 10, 60, 60);
-    }
 
-    private double calculateShootProbability() {
-        // Basis-Schießwahrscheinlichkeit
-        double baseProbability = 0.0024;
 
-        // Erhöhte Wahrscheinlichkeit, wenn weniger Gegner vorhanden sind
-        double multiplier = 1.0 + (1.0 - (double)enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS));
 
-        // Maximalwert
-        double maxProbability = 0.2;
-
-        return Math.min(baseProbability * multiplier, maxProbability);
+    private void spawnEnemies(GraphicsContext gc) {
+        for (Enemy enemy : enemies) {
+            gc.drawImage(enemy.getImage(), enemy.getX(), enemy.getY(), ENEMY_WIDTH, ENEMY_HEIGHT);
+        }
     }
 
 

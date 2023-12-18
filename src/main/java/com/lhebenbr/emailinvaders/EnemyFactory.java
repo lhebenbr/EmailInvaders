@@ -3,6 +3,8 @@ package com.lhebenbr.emailinvaders;
 import com.lhebenbr.emailinvaders.model.Enemy;
 import javafx.scene.image.Image;
 
+import static com.lhebenbr.emailinvaders.Config.*;
+
 public class EnemyFactory {
 
     public static Enemy createEnemy(EnemyType type, double x, double y, int width, int height) {
@@ -15,29 +17,25 @@ public class EnemyFactory {
     }
 
     private static Enemy createType1Enemy(double x, double y, int width, int height) {
-        Enemy enemy = new Enemy(x, y, width, height);
-        enemy.setPoints(100);
+        Enemy enemy = new Enemy(x, y, width, height,ENEMY_POINTS_1, ENEMY_SPEED);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_1.png"));
         return enemy;
     }
 
     private static Enemy createType2Enemy(double x, double y, int width, int height) {
-        Enemy enemy = new Enemy(x, y, width, height);
-        enemy.setPoints(200);
+        Enemy enemy = new Enemy(x, y, width, height,ENEMY_POINTS_2,ENEMY_SPEED);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_2.png"));
         return enemy;
     }
 
     private static Enemy createType3Enemy(double x, double y, int width, int height) {
-        Enemy enemy = new Enemy(x, y, width, height);
-        enemy.setPoints(300);
+        Enemy enemy = new Enemy(x, y, width, height,ENEMY_POINTS_3,ENEMY_SPEED);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_3.png"));
         return enemy;
     }
 
     public static Enemy createBonusEnemey(double x, double y, int width, int height) {
-        Enemy enemy = new Enemy(x, y, width, height);
-        enemy.setPoints(600);
+        Enemy enemy = new Enemy(x, y, width, height,ENEMY_POINTS_4,ENEMY_SPEED);
         enemy.setImage(new Image("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/mail_bonus.png"));
         return enemy;
     }

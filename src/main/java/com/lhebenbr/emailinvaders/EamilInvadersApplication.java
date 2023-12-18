@@ -15,6 +15,10 @@ import static com.lhebenbr.emailinvaders.Config.HEIGHT;
 import static com.lhebenbr.emailinvaders.Config.WIDTH;
 
 public class EamilInvadersApplication extends Application {
+
+    public void startGame(Stage primaryStage) throws Exception {
+        start(primaryStage);
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
         String musicFile = "src/main/resources/com/lhebenbr/emailinvaders/assets/music/music.wav";

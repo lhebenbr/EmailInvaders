@@ -4,12 +4,27 @@ import javafx.scene.image.Image;
 
 public abstract class Entity {
 
-    private double x;
-    private double y;
-    private Image image;
-    private int width;
-    private int height;
+    protected double x;
+    protected double y;
+    protected Image image;
+    protected int width;
+    protected int height;
 
+
+    public Entity(double x, double y, Image image, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.image = image;
+        this.width = width;
+        this.height = height;
+    }
+
+    public Entity(double x, double y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
 
     public double getX() {
         return x;

@@ -1,16 +1,24 @@
 package com.lhebenbr.emailinvaders.model;
 
-public class Player {
+import javafx.scene.image.Image;
 
-    public Player(int width, int height) {
-        this.width = width;
-        this.height = height;
-    }
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.lhebenbr.emailinvaders.Config.*;
+
+public class Player extends Entity {
 
     private long lastTimeShot = 0;
-    private int width;
+    private int speed;
+    private int life;
+    private final List<PlayerBullet> bullets = new ArrayList<>();
 
-    private int height;
+    public Player(double x, double y, Image image, int width, int height, int speed, int life) {
+        super(x, y, image, width, height);
+        this.speed = speed;
+        this.life = life;
+    }
 
     public boolean canShoot(long currentTime) {
         if (currentTime - lastTimeShot >= 500) {
@@ -20,19 +28,39 @@ public class Player {
         return false;
     }
 
-    public int getWidth() {
-        return width;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
-    public int getHeight() {
-        return height;
+    public int getLife() {
+        return life;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void loseLife() {
+        this.life--;
     }
+
+    public void addLife() {
+        this.life++;
+    }
+
+    public void setLife(int live) {
+        this.life = live;
+    }
+
+    public List<PlayerBullet> getBullets() {
+        return bullets;
+    }
+
+    public void shoot() {
+        long currentTime = System.currentTimeMillis();
+        if (canShoot(currentTime)){
+            bullets.add(new PlayerBullet(x + 45, y,BULLET_WIDTH,BULLET_HEIGHT,BULLET_SPEED));
+        }
+    }
+
 }
