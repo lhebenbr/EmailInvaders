@@ -2,6 +2,7 @@ package com.lhebenbr.emailinvaders;
 
 import com.lhebenbr.emailinvaders.model.*;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.ImageView;
 
 import java.util.List;
 
@@ -51,6 +52,15 @@ public class EmailInvaderRenderer {
     public void renderBonusDrops(List<Bonus> bonusDrops) {
         for (Bonus bonus : bonusDrops) {
             gc.drawImage(bonus.getImage(), bonus.getX(), bonus.getY(), bonus.getWidth(), bonus.getHeight());
+        }
+    }
+
+    public void renderExplosions(List<Explosion> explosions) {
+        for (Explosion explosion : explosions) {
+            ImageView imageView = explosion.getImageView();
+            if (imageView.isVisible()) {
+                gc.drawImage(imageView.getImage(), imageView.getX(), imageView.getY(), explosion.getWidth(), explosion.getHeight());
+            }
         }
     }
 

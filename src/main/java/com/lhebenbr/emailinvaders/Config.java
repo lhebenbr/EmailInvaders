@@ -36,4 +36,6 @@ public final class Config {
     public static final int BONUS_DROP_SPEED = 3;
     public static final long BONUS_DROP_SPAWN_TIME = 3_000_000_000L;
     public static final long BONUS_MAIL_SPAWN_TIME = 30_000_000_000L;
+    public static final int EXPLOSION_WIDTH = 200;
+    public static final int EXPLOSION_HEIGHT = 200;
 }

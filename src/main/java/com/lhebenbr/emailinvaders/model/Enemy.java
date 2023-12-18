@@ -1,5 +1,6 @@
 package com.lhebenbr.emailinvaders.model;
 
+import com.lhebenbr.emailinvaders.ImageCache;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ public class Enemy extends Entity {
 
     private int points;
     private double speed;
+    private boolean isDestroyed = false;
     private final List<EnemyBullet> enemyBullets = new ArrayList<>();
 
     public Enemy(double x, double y, Image image, int width, int height, int points, int speed) {
@@ -68,5 +70,23 @@ public class Enemy extends Entity {
 
         return Math.min(baseProbability * multiplier, maxProbability);
     }
+
+    public Explosion destroy() {
+        if (!isDestroyed) {
+            isDestroyed = true;
+            Image[] explosionFrames = getExplosionFrames();
+            return new Explosion(explosionFrames, x - 50, y - 60, EXPLOSION_WIDTH, EXPLOSION_HEIGHT);
+        }
+        return null;
+    }
+
+    private Image[] getExplosionFrames() {
+        Image[] frames = new Image[9];
+        for (int i = 0; i < 9; i++) {
+            frames[i] = ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/explosion_" + (i + 1) + ".png");
+        }
+        return frames;
+    }
+
 
 }

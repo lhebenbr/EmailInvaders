@@ -36,6 +36,7 @@ public class EmaillInvaderController {
     private final List<Enemy> enemies = new ArrayList<>();
     private final List<Barrier> barriers = new ArrayList<>();
     private final List<Bonus> activeBonuses = new ArrayList<>();
+    private final List<Explosion> activeExplosions = new ArrayList<>();
     private Enemy bonusEmail;
     private Player player;
     private final Random random = new Random();
@@ -141,8 +142,7 @@ public class EmaillInvaderController {
     }
 
     private void spawnBonusDrop() {
-        //int bonusType = random.nextInt(4) + 1; // Zufällige Zahl zwischen 1 und 4
-        int bonusType = 4;
+        int bonusType = random.nextInt(4) + 1; // Zufällige Zahl zwischen 1 und 4
         double bonusX = random.nextDouble() * (gameCanvas.getWidth() - Config.BONUS_DROP_WIDTH);
         double bonusY = 0; // Start am oberen Bildschirmrand
         Bonus bonus = BonusFactory.createBonus(bonusX, bonusY, bonusType);
@@ -218,6 +218,7 @@ public class EmaillInvaderController {
 
                 if (CollisionManager.checkCollision(enemy, bullet)) {
                     GameManager.getInstance().addScore(enemy.getPoints());
+                    activeExplosions.add(enemy.destroy());
                     bulletIterator.remove();
                     enemyIterator.remove();
                     break;
@@ -333,6 +334,7 @@ public class EmaillInvaderController {
         while (enemyIterator.hasNext()) {
             Enemy enemy = enemyIterator.next();
             if (CollisionManager.checkCollision(bonus, enemy)) {
+                activeExplosions.add(enemy.destroy());
                 enemyIterator.remove();
             }
         }
@@ -381,6 +383,7 @@ public class EmaillInvaderController {
         updateBarriers();
         checkCollisions();
         checkEnemyBulletCollisions();
+        activeExplosions.removeIf(Explosion::isAnimationFinished);
         if (enemies.isEmpty()) {
             spawnEnemies();
         }
@@ -404,6 +407,7 @@ public class EmaillInvaderController {
         renderer.renderHearts(player);
         renderer.renderBonusMail(bonusEmail);
         renderer.renderBonusDrops(activeBonuses);
+        renderer.renderExplosions(activeExplosions);
     }
 
 
