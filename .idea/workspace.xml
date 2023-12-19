@@ -172,7 +172,7 @@
       <workItem from="1702847923634" duration="727000" />
       <workItem from="1702851010915" duration="897000" />
       <workItem from="1702861405933" duration="2761000" />
-      <workItem from="1702901986534" duration="50452000" />
+      <workItem from="1702901986534" duration="52258000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -286,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702956258256</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="readme und bilder für readme">
+      <option name="closed" value="true" />
+      <created>1702958030771</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1702958030771</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +335,8 @@
     <MESSAGE value="Explosionen hinzugefügt" />
     <MESSAGE value="sounds" />
     <MESSAGE value="andere Texturen, letzte anpassungen" />
-    <option name="LAST_COMMIT_MESSAGE" value="andere Texturen, letzte anpassungen" />
+    <MESSAGE value="readme und bilder für readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme und bilder für readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
