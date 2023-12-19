@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="74f2ee33-8b83-4637-abe1-f03efd64e25e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EmaillInvaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EmaillInvaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Enemy.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <branch-grouping />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/MenuView.fxml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2XkCKm16I3dhyMSiPg1fVNAAGLR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.EamilInvadersApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/weuli/Projekte_Studium/EmailInvaders",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.saveactions",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
+    ]
+  }
+}]]></component>
+  <component name="ReadonlyStatusHandler">
+    <option name="SHOW_DIALOG" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/font" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/font" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.lhebenbr.emailinvaders" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lhebenbr.emailinvaders" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="EamilInvadersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lhebenbr.emailinvaders.EamilInvadersApplication" />
+      <module name="EmailInvaders" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lhebenbr.emailinvaders.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EamilInvadersApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-jbrsdk-17.0.9-3183f394aec4-99c60647" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74f2ee33-8b83-4637-abe1-f03efd64e25e" name="Changes" comment="" />
+      <created>1699163631896</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699163631896</updated>
+      <workItem from="1699163632949" duration="1176000" />
+      <workItem from="1699200810086" duration="3189000" />
+      <workItem from="1699212500589" duration="13347000" />
+      <workItem from="1699228873434" duration="140000" />
+      <workItem from="1699229039766" duration="624000" />
+      <workItem from="1699637152815" duration="20544000" />
+      <workItem from="1699713563070" duration="8042000" />
+      <workItem from="1699724625350" duration="2703000" />
+      <workItem from="1700347338145" duration="632000" />
+      <workItem from="1700747943148" duration="474000" />
+      <workItem from="1700748806235" duration="120000" />
+      <workItem from="1700754178867" duration="7000" />
+      <workItem from="1700754347203" duration="176000" />
+      <workItem from="1700754530014" duration="22000" />
+      <workItem from="1701434015004" duration="1307000" />
+      <workItem from="1701873478450" duration="4000" />
+      <workItem from="1701954890409" duration="621000" />
+      <workItem from="1702142292220" duration="607000" />
+      <workItem from="1702149072301" duration="2148000" />
+      <workItem from="1702215806767" duration="1386000" />
+      <workItem from="1702223499676" duration="8253000" />
+      <workItem from="1702241107619" duration="647000" />
+      <workItem from="1702242139042" duration="6666000" />
+      <workItem from="1702471478647" duration="26000" />
+      <workItem from="1702478069971" duration="156000" />
+      <workItem from="1702497855062" duration="3377000" />
+      <workItem from="1702501656019" duration="452000" />
+      <workItem from="1702565910274" duration="7478000" />
+      <workItem from="1702592298135" duration="322000" />
+      <workItem from="1702598676423" duration="6551000" />
+      <workItem from="1702636871610" duration="2320000" />
+      <workItem from="1702650721102" duration="21180000" />
+      <workItem from="1702817936959" duration="5591000" />
+      <workItem from="1702824559284" duration="393000" />
+      <workItem from="1702825002631" duration="5343000" />
+      <workItem from="1702831508104" duration="12980000" />
+      <workItem from="1702847923634" duration="727000" />
+      <workItem from="1702851010915" duration="897000" />
+      <workItem from="1702861405933" duration="2761000" />
+      <workItem from="1702901986534" duration="52571000" />
+    </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1702250727940</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702250727940</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <option name="closed" value="true" />
+      <created>1702605261114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702605261115</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update">
+      <option name="closed" value="true" />
+      <created>1702680512322</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702680512322</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update highscore">
+      <option name="closed" value="true" />
+      <created>1702684996843</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702684996843</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update sound modelle">
+      <option name="closed" value="true" />
+      <created>1702849772215</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702849772215</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Refactoring">
+      <option name="closed" value="true" />
+      <created>1702912808712</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702912808712</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Unterteilung zwischen view und controller">
+      <option name="closed" value="true" />
+      <created>1702921393056</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702921393056</updated>
+    </task>
+    <task id="LOCAL-00008" summary="ImageCache für performance">
+      <option name="closed" value="true" />
+      <created>1702922638346</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702922638346</updated>
+    </task>
+    <task id="LOCAL-00009" summary="exit implementiert">
+      <option name="closed" value="true" />
+      <created>1702928164759</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702928164759</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Bonus implementiert, endlich 1000 Zeilen :)">
+      <option name="closed" value="true" />
+      <created>1702936647687</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702936647687</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Bonus implementiert, endlich 1000 Zeilen :)">
+      <option name="closed" value="true" />
+      <created>1702936671132</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702936671132</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Explosionen hinzugefügt">
+      <option name="closed" value="true" />
+      <created>1702943710535</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702943710535</updated>
+    </task>
+    <task id="LOCAL-00013" summary="sounds">
+      <option name="closed" value="true" />
+      <created>1702950060344</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702950060344</updated>
+    </task>
+    <task id="LOCAL-00014" summary="andere Texturen, letzte anpassungen">
+      <option name="closed" value="true" />
+      <created>1702956258256</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702956258256</updated>
+    </task>
+    <task id="LOCAL-00015" summary="readme und bilder für readme">
+      <option name="closed" value="true" />
+      <created>1702958030771</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1702958030771</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <MESSAGE value="update highscore" />
+    <MESSAGE value="update sound modelle" />
+    <MESSAGE value="Refactoring" />
+    <MESSAGE value="Unterteilung zwischen view und controller" />
+    <MESSAGE value="ImageCache für performance" />
+    <MESSAGE value="exit implementiert" />
+    <MESSAGE value="Bonus implementiert, endlich 1000 Zeilen :)" />
+    <MESSAGE value="Explosionen hinzugefügt" />
+    <MESSAGE value="sounds" />
+    <MESSAGE value="andere Texturen, letzte anpassungen" />
+    <MESSAGE value="readme und bilder für readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme und bilder für readme" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-media/16/javafx-media-16-linux.jar!/javafx/scene/media/MediaException.class</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

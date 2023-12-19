@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@css/style.css"
+            fx:controller="com.lhebenbr.emailinvaders.GameOverController"
+            prefHeight="1960" prefWidth="1080">
+
+    <Label text="Game Over" layoutX="600.0" layoutY="100.0" style="-fx-font-size: 80px; -fx-text-fill: yellow;"
+           styleClass="custom-font"/>
+
+    <Text fx:id="highscoreText" layoutX="650.0" layoutY="250.0" style="-fx-font-size: 50px; -fx-text-fill: yellow;"
+          styleClass="custom-font"/>
+
+    <TextFlow fx:id="textFlow" layoutX="400.0" layoutY="500.0" style="-fx-font-size: 24px; -fx-text-fill: yellow;"
+              styleClass="custom-font">
+    </TextFlow>
+
+
+    <Button fx:id="restartButton" layoutX="800.0" layoutY="700.0" mnemonicParsing="false" text="Restart"
+            style="-fx-background-color: transparent; -fx-font-size: 40px; -fx-text-fill: yellow;"
+            styleClass="custom-font" onAction="#onRestartButtonClicked"/>
+    <Button fx:id="exitButton" layoutX="650.0" layoutY="800.0" mnemonicParsing="false" text="Exit Game"
+            style="-fx-background-color: transparent; -fx-font-size: 60px; -fx-text-fill: yellow;"
+            styleClass="custom-font" onAction="#onExitButtonClicked"/>
+</AnchorPane>
