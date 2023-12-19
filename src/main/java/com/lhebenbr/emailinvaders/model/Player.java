@@ -1,6 +1,7 @@
 package com.lhebenbr.emailinvaders.model;
 
 import com.lhebenbr.emailinvaders.ImageCache;
+import com.lhebenbr.emailinvaders.SoundManager;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class Player extends Entity {
 
     public void loseLife() {
         if (!life.isEmpty()) {
+            SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/damage.wav", false);
             life.remove(life.size() - 1);
         }
     }
@@ -59,6 +61,9 @@ public class Player extends Entity {
     public void shoot() {
         long currentTime = System.currentTimeMillis();
         if (canShoot(currentTime) || noLimit) {
+            if (!noLimit) {
+                SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/laser.wav", false);
+            }
             bullets.add(new PlayerBullet(x + 45, y, BULLET_WIDTH, BULLET_HEIGHT, BULLET_SPEED));
         }
     }

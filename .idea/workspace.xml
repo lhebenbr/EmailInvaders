@@ -39,7 +39,10 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2XkCKm16I3dhyMSiPg1fVNAAGLR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,7 +56,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/weuli/Projekte_Studium/EmailInvaders/src/main/resources/com/lhebenbr/emailinvaders/assets/textures",
+    "last_opened_file_path": "/home/weuli/Projekte_Studium/EmailInvaders/src/main/resources/com/lhebenbr/emailinvaders/assets/music",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,13 +78,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/font" />
       <recent name="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/font" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets" />
@@ -168,7 +172,7 @@
       <workItem from="1702847923634" duration="727000" />
       <workItem from="1702851010915" duration="897000" />
       <workItem from="1702861405933" duration="2761000" />
-      <workItem from="1702901986534" duration="37322000" />
+      <workItem from="1702901986534" duration="43862000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -258,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702936671132</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Explosionen hinzugefügt">
+      <option name="closed" value="true" />
+      <created>1702943710535</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702943710535</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +308,8 @@
     <MESSAGE value="ImageCache für performance" />
     <MESSAGE value="exit implementiert" />
     <MESSAGE value="Bonus implementiert, endlich 1000 Zeilen :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bonus implementiert, endlich 1000 Zeilen :)" />
+    <MESSAGE value="Explosionen hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Explosionen hinzugefügt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

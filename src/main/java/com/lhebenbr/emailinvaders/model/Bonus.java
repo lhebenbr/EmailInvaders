@@ -1,6 +1,7 @@
 package com.lhebenbr.emailinvaders.model;
 
 import com.lhebenbr.emailinvaders.GameManager;
+import com.lhebenbr.emailinvaders.SoundManager;
 import javafx.animation.PauseTransition;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
@@ -37,6 +38,7 @@ public class Bonus extends Entity {
 
 
     public void applyBonus(Player player) {
+        SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/powerup.wav", false);
         switch (typ) {
             case 1:
                 if (player.getLife().size() < 3) {

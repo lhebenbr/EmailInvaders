@@ -27,8 +27,6 @@ public class EmaillInvaderController {
     @FXML
     private Text scoreText;
 
-    private EmailInvaderRenderer renderer;
-
     private boolean movingLeft = false;
     private boolean movingRight = false;
     private boolean isSpacePressed = false;
@@ -45,8 +43,7 @@ public class EmaillInvaderController {
 
 
     public void initialize() {
-        GraphicsContext gc = gameCanvas.getGraphicsContext2D();
-        EmailInvaderRenderer renderer = new EmailInvaderRenderer(gc);
+        SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/game_start.wav", false);
         player = new Player(PLAYER_START_X, PLAYER_START_Y, ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_SPEED);
         spawnBarriers();
         spawnEnemies();
@@ -204,6 +201,7 @@ public class EmaillInvaderController {
 
             if (bonusEmail != null && CollisionManager.checkCollision(bonusEmail, bullet)) {
                 bulletIterator.remove();
+                activeExplosions.add(bonusEmail.destroy());
                 GameManager.getInstance().addScore(bonusEmail.getPoints());
                 bonusEmail = null;
                 if (player.getLife().size() < 3) {
@@ -246,7 +244,7 @@ public class EmaillInvaderController {
         double minX = gameCanvas.getWidth();
 
         // Anpassung der Gegnergeschwindigkeit basierend auf der Anzahl der verbleibenden Gegner
-        double baseEnemySpeed = 1.0;
+        double baseEnemySpeed = ENEMY_SPEED;
         double speed = baseEnemySpeed + (baseEnemySpeed * Math.round(1 - (double) enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
 
         for (Enemy enemy : enemies) {
@@ -391,6 +389,13 @@ public class EmaillInvaderController {
             spawnBarriers();
         }
         if (player.getLife().size() <= 0) {
+            if (isSpacePressed) {
+                isSpacePressed = false;
+            }
+            enemies.clear();
+            barriers.clear();
+            activeBonuses.clear();
+            activeExplosions.clear();
             gameOver();
         }
     }

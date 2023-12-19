@@ -1,6 +1,7 @@
 package com.lhebenbr.emailinvaders.model;
 
 import com.lhebenbr.emailinvaders.ImageCache;
+import com.lhebenbr.emailinvaders.SoundManager;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -73,6 +74,7 @@ public class Enemy extends Entity {
 
     public Explosion destroy() {
         if (!isDestroyed) {
+            SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/explosion.wav", false);
             isDestroyed = true;
             Image[] explosionFrames = getExplosionFrames();
             return new Explosion(explosionFrames, x - 50, y - 60, EXPLOSION_WIDTH, EXPLOSION_HEIGHT);
