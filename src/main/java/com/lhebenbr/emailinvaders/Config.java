@@ -11,12 +11,12 @@ public final class Config {
     public static final int START_LIVES = 3;
     public static final double PLAYER_START_X = 960;
     public static final double PLAYER_START_Y = 910;
-    public static final int PLAYER_WIDTH = 70;
-    public static final int PLAYER_HEIGHT = 60;
+    public static final int PLAYER_WIDTH = 80;
+    public static final int PLAYER_HEIGHT = 80;
     public static final int PLAYER_SPEED = 5;
     public static final int ENEMY_WIDTH = 80;
-    public static final int ENEMY_HEIGHT = 80;
-    public static final int ENEMY_SPEED = 2;
+    public static final int ENEMY_HEIGHT = 60;
+    public static final int ENEMY_SPEED = 1;
     public static final int ENEMY_POINTS_1 = 100;
     public static final int ENEMY_POINTS_2 = 200;
     public static final int ENEMY_POINTS_3 = 300;
@@ -29,7 +29,7 @@ public final class Config {
     public static final int HEART_WIDTH = 40;
     public static final int HEART_HEIGHT = 40;
     public static final int BONUS_MAIL_WIDTH = 60;
-    public static final int BONUS_MAIL_HEIGHT = 60;
+    public static final int BONUS_MAIL_HEIGHT = 50;
     public static final int BONUS_MAIL_SPEED = 2;
     public static final int BONUS_DROP_WIDTH = 50;
     public static final int BONUS_DROP_HEIGHT = 50;

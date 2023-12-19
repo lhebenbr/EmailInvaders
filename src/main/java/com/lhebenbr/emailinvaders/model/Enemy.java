@@ -61,13 +61,13 @@ public class Enemy extends Entity {
 
     private double calculateShootProbability(List<Enemy> enemies) {
         // Basis-Schießwahrscheinlichkeit
-        double baseProbability = 0.0001;
+        double baseProbability = 0.00015;
 
         // Erhöhte Wahrscheinlichkeit, wenn weniger Gegner vorhanden sind
         double multiplier = 1.0 + (1.0 - ((double) enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
 
         // Maximalwert
-        double maxProbability = 0.0004;
+        double maxProbability = 0.00045;
 
         return Math.min(baseProbability * multiplier, maxProbability);
     }

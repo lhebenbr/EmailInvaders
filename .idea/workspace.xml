@@ -56,7 +56,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/weuli/Projekte_Studium/EmailInvaders/src/main/resources/com/lhebenbr/emailinvaders/assets/music",
+    "last_opened_file_path": "/home/weuli/Projekte_Studium/EmailInvaders/src/main/resources/com/lhebenbr/emailinvaders/assets/textures",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,15 +78,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/font" />
       <recent name="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/music" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/font" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders" />
@@ -172,7 +172,7 @@
       <workItem from="1702847923634" duration="727000" />
       <workItem from="1702851010915" duration="897000" />
       <workItem from="1702861405933" duration="2761000" />
-      <workItem from="1702901986534" duration="43862000" />
+      <workItem from="1702901986534" duration="48831000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -270,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702943710535</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="sounds">
+      <option name="closed" value="true" />
+      <created>1702950060344</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702950060344</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +317,8 @@
     <MESSAGE value="exit implementiert" />
     <MESSAGE value="Bonus implementiert, endlich 1000 Zeilen :)" />
     <MESSAGE value="Explosionen hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Explosionen hinzugefügt" />
+    <MESSAGE value="sounds" />
+    <option name="LAST_COMMIT_MESSAGE" value="sounds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

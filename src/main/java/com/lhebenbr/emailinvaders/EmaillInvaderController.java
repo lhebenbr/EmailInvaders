@@ -43,6 +43,7 @@ public class EmaillInvaderController {
 
 
     public void initialize() {
+        GameManager.getInstance().setScore(0);
         SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/game_start.wav", false);
         player = new Player(PLAYER_START_X, PLAYER_START_Y, ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_SPEED);
         spawnBarriers();
@@ -82,13 +83,14 @@ public class EmaillInvaderController {
         });
 
 
-        new AnimationTimer() {
+        AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 updateGame(now);
                 renderGame();
             }
-        }.start();
+        };
+        timer.start();
     }
 
 
@@ -121,11 +123,11 @@ public class EmaillInvaderController {
     private void spawnEnemies() {
         enemies.clear();
         double startWidth = 250;
-        double startHeight = 50;
+        double startHeight = 100;
         for (int y = 0; y < ENEMY_ROWS; y++) {
             for (int x = 0; x < ENEMIES_PER_ROW; x++) {
                 EnemyFactory.EnemyType type = EnemyFactory.EnemyType.values()[random.nextInt(EnemyFactory.EnemyType.values().length)];
-                Enemy enemy = EnemyFactory.createEnemy(type, startWidth, startHeight, 80, 80);
+                Enemy enemy = EnemyFactory.createEnemy(type, startWidth, startHeight, ENEMY_WIDTH, ENEMY_HEIGHT);
                 enemies.add(enemy);
                 startWidth += 140;
             }
@@ -135,13 +137,13 @@ public class EmaillInvaderController {
     }
 
     private void spawnBonusEmail() {
-        bonusEmail = EnemyFactory.createBonusEnemey(0, 10, 60, 60);
+        bonusEmail = EnemyFactory.createBonusEnemey(0, 10, BONUS_MAIL_WIDTH, BONUS_MAIL_HEIGHT);
     }
 
     private void spawnBonusDrop() {
         int bonusType = random.nextInt(4) + 1; // Zufällige Zahl zwischen 1 und 4
         double bonusX = random.nextDouble() * (gameCanvas.getWidth() - Config.BONUS_DROP_WIDTH);
-        double bonusY = 0; // Start am oberen Bildschirmrand
+        double bonusY = 0;
         Bonus bonus = BonusFactory.createBonus(bonusX, bonusY, bonusType);
         activeBonuses.add(bonus);
     }
@@ -200,7 +202,6 @@ public class EmaillInvaderController {
             PlayerBullet bullet = bulletIterator.next();
 
             if (bonusEmail != null && CollisionManager.checkCollision(bonusEmail, bullet)) {
-                bulletIterator.remove();
                 activeExplosions.add(bonusEmail.destroy());
                 GameManager.getInstance().addScore(bonusEmail.getPoints());
                 bonusEmail = null;
@@ -388,7 +389,7 @@ public class EmaillInvaderController {
         if (barriers.isEmpty() && GameManager.getInstance().getScore() % 1000 == 0) {
             spawnBarriers();
         }
-        if (player.getLife().size() <= 0) {
+        if (player.getLife().isEmpty()) {
             if (isSpacePressed) {
                 isSpacePressed = false;
             }

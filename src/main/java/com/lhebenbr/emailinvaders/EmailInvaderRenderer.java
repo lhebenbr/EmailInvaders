@@ -45,7 +45,7 @@ public class EmailInvaderRenderer {
 
     public void renderBonusMail(Enemy bonusEmail) {
         if (bonusEmail != null) {
-            gc.drawImage(bonusEmail.getImage(), bonusEmail.getX(), bonusEmail.getY(), BONUS_MAIL_WIDTH, BONUS_MAIL_HEIGHT);
+            gc.drawImage(bonusEmail.getImage(), bonusEmail.getX(), bonusEmail.getY(), bonusEmail.getWidth(), bonusEmail.getHeight());
         }
     }
 

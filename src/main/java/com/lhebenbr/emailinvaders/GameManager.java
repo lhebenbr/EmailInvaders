@@ -11,7 +11,6 @@ public class GameManager {
     private static final String HIGHSCORE_FILE_PATH = "src/main/java/com/lhebenbr/emailinvaders/highscore.txt";
     private int highScore;
     private int score;
-
     private static GameManager instance;
 
     public static GameManager getInstance() {
@@ -48,6 +47,10 @@ public class GameManager {
 
     public int getScore() {
         return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public void addScore(int score) {
