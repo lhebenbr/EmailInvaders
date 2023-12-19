@@ -4,8 +4,23 @@ ________________________________________________________________________________
 
 ## Beschreibung
 
-Im Spiel Email Invaders geht es darum sein Postfach vor bösen Phising-Mails zu beschützen.
-Das Spiel ist in seiner Funktion an das bekannte Spiel Space Invaders angelehnt.
+**Email Invaders** ist ein Arcade-ähnliches Spiel, inspiriert vom klassischen **Space Invaders**. Ziel des Spiels ist
+es,
+dein
+Postfach vor einer Flut bösartiger Phishing-Mails zu verteidigen. Mit schnellen Reflexen und strategischem Geschick
+kämpfst du gegen unerwünschte Eindringlinge und schützt deine digitale Sicherheit.
+
+_______________________________________________________________________________________________________________________
+
+## Features
+
+**Klassisches Arcade-Feeling:** Erlebe den Nervenkitzel und die Herausforderung eines Retro-Arcade-Spiels.
+
+**Steigernde Schwierigkeit:** Je länger du überlebst, desto schwieriger wird das Spiel.
+
+**Power-ups:** Entdecke und nutze verschiedene Power-ups, um deine Chancen zu verbessern.
+
+Viel Spaß beim Verteidigen deines Postfachs in Email Invaders!
 _______________________________________________________________________________________________________________________
 
 Das Menü:
@@ -22,16 +37,17 @@ ________________________________________________________________________________
 
 ## Funktionsweise
 
-Man steuert mit den Pfeiltasten das eigene Schiff und kann mit der Leertaste schießen. Nun geht es darum einen möglicht
-hohen Highscore zu erreichen. Dieser wird durch das Abschießen von Mails erreicht. Diese kommen in verschiedenen
-Varianten mit unterschiedlich vielen Punkten und anderen Attributen.
-In regelmäßigen Intervalen wird eine Bonusmail erzeugt die sich am oberen Bildschirmrand bewegt. Bei einem Treffer gibt
-es Bonuspunkte und der Spieler erhält Leben.
-Falls alle Mails zerstört wurden, erscheinen neue Mails. Wenn eine Mail den unteren Bildschirmrand erreicht oder der
-Spieler zu oft von den Mails getroffen wird, ist das Spiel vorbei.
-Mit der abnehmender Anzahl werden die Mails schneller und sie schießen auch schneller.
-Zusätzlich gibt es noch verschiedene Power-ups mit unterschiedlichen effekten, die auftreten, wenn sie mit dem Spieler
-kollidieren.
+Navigiere dein Raumschiff mit den **Pfeiltasten** und feuere auf die eindringenden Phishing-Mails mit der **Leertaste**.
+Dein
+Ziel ist es, einen möglichst hohen Highscore zu erreichen, indem du die Angreifer abschießt. Jede zerstörte Mail erhöht
+deine Punktzahl, wobei verschiedene Typen unterschiedliche Punkte und Eigenschaften haben.
+
+In regelmäßigen Abständen taucht eine **Bonusmail** am oberen Bildschirmrand auf. Triffst du sie, bekommst du nicht nur
+Bonuspunkte, sondern auch zusätzliche Leben. Wenn alle Feinde besiegt sind, erscheint eine neue Welle von Mails. Sollte
+jedoch eine Mail den unteren Bildschirmrand erreichen oder du zu oft getroffen werden, ist das Spiel vorbei.
+
+Mit abnehmender Zahl der Gegner steigt deren Geschwindigkeit und die Frequenz ihrer Angriffe. Diverse Power-ups mit
+unterschiedlichen Effekten können aufsammelt werden, um dir Vorteile im Kampf gegen die Phishing-Flut zu verschaffen.
 
 ## Power-ups
 
