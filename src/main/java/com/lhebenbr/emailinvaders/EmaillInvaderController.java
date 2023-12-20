@@ -42,6 +42,10 @@ public class EmaillInvaderController {
     private long lastBonusSpawnTime = 0;
 
 
+    /**
+     * Initialisiert das Spiel, indem die Spiellogik und die Anfangszustände wie Spieler,
+     * Barrieren und Feinde gesetzt werden.
+     */
     public void initialize() {
         GameManager.getInstance().setScore(0);
         SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/game_start.wav", false);
@@ -93,7 +97,9 @@ public class EmaillInvaderController {
         timer.start();
     }
 
-
+    /**
+     * Erzeugt Barrieren im Spiel.
+     */
     private void spawnBarriers() {
         Image image = ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/barrier_1.png");
         int startWidth = 150;
@@ -105,6 +111,9 @@ public class EmaillInvaderController {
         }
     }
 
+    /**
+     * Aktualisiert den Zustand der Barrieren im Spiel.
+     */
     private void updateBarriers() {
         for (Barrier barrier : barriers) {
             if (!barrier.isDestroyed()) {
@@ -114,12 +123,22 @@ public class EmaillInvaderController {
         }
     }
 
+    /**
+     * Wählt das passende Bild für die Barriere basierend auf ihrer Gesundheit aus.
+     *
+     * @param barrier Die Barriere, deren Bild aktualisiert werden soll.
+     * @return Das Bild, das der aktuellen Gesundheit der Barriere entspricht.
+     */
     private Image selectBarrierImage(Barrier barrier) {
         int i = barrier.getHealth() <= 10 ? 3 : barrier.getHealth() <= 20 ? 2 : 1;
         Image barrierImage = ImageCache.getImage("file:src/main/resources/com/lhebenbr/emailinvaders/assets/textures/barrier_" + i + ".png");
         return barrierImage;
     }
 
+
+    /**
+     * Erzeugt die Feinde im Spiel.
+     */
     private void spawnEnemies() {
         enemies.clear();
         double startWidth = 250;
@@ -136,10 +155,16 @@ public class EmaillInvaderController {
         }
     }
 
+    /**
+     * Erzeugt eine Bonus-Email im Spiel.
+     */
     private void spawnBonusEmail() {
         bonusEmail = EnemyFactory.createBonusEnemey(0, 10, BONUS_MAIL_WIDTH, BONUS_MAIL_HEIGHT);
     }
 
+    /**
+     * Erzeugt ein Bonus-Drop-Objekt an einer zufälligen Position.
+     */
     private void spawnBonusDrop() {
         int bonusType = random.nextInt(4) + 1; // Zufällige Zahl zwischen 1 und 4
         double bonusX = random.nextDouble() * (gameCanvas.getWidth() - Config.BONUS_DROP_WIDTH);
@@ -148,6 +173,11 @@ public class EmaillInvaderController {
         activeBonuses.add(bonus);
     }
 
+
+    /**
+     * Überprüft die Kollisionen zwischen den Geschossen der Feinde und anderen Objekten
+     * wie dem Spieler und den Barrieren.
+     */
     private void checkEnemyBulletCollisions() {
         for (Enemy enemy : enemies) {
             Iterator<EnemyBullet> bulletIterator = enemy.getEnemyBullets().iterator();
@@ -155,7 +185,7 @@ public class EmaillInvaderController {
                 EnemyBullet bullet = bulletIterator.next();
 
                 // Kollision mit dem Spieler
-                if (CollisionManager.checkCollision(player, bullet)) {
+                if (player.checkCollision(bullet)) {
 
                     bulletIterator.remove();
                     handlePlayerHit();
@@ -166,7 +196,7 @@ public class EmaillInvaderController {
                 Iterator<Barrier> barrierIterator = barriers.iterator();
                 while (barrierIterator.hasNext()) {
                     Barrier barrier = barrierIterator.next();
-                    if (CollisionManager.checkCollision(barrier, bullet)) {
+                    if (barrier.checkCollision(bullet)) {
                         // Treffer an einer Barriere
                         bulletIterator.remove();
                         barrier.takeDamage();
@@ -181,7 +211,7 @@ public class EmaillInvaderController {
                 Iterator<PlayerBullet> playerBulletIterator = player.getBullets().iterator();
                 while (playerBulletIterator.hasNext()) {
                     PlayerBullet playerBullet = playerBulletIterator.next();
-                    if (CollisionManager.checkCollision(playerBullet, bullet)) {
+                    if (playerBullet.checkCollision(bullet)) {
                         // Treffer eines Spieler-Geschosses
                         bulletIterator.remove();
                         playerBulletIterator.remove();
@@ -192,16 +222,22 @@ public class EmaillInvaderController {
         }
     }
 
+    /**
+     * Verarbeitet die Situation, wenn der Spieler getroffen wird.
+     */
     private void handlePlayerHit() {
         player.loseLife();
     }
 
+    /**
+     * Überprüft alle Kollisionen zwischen Geschossen des Spielers und Feinden oder Barrieren.
+     */
     private void checkCollisions() {
         Iterator<PlayerBullet> bulletIterator = player.getBullets().iterator();
         while (bulletIterator.hasNext()) {
             PlayerBullet bullet = bulletIterator.next();
 
-            if (bonusEmail != null && CollisionManager.checkCollision(bonusEmail, bullet)) {
+            if (bonusEmail != null && bonusEmail.checkCollision(bullet)) {
                 activeExplosions.add(bonusEmail.destroy());
                 GameManager.getInstance().addScore(bonusEmail.getPoints());
                 bonusEmail = null;
@@ -215,7 +251,7 @@ public class EmaillInvaderController {
             while (enemyIterator.hasNext()) {
                 Enemy enemy = enemyIterator.next();
 
-                if (CollisionManager.checkCollision(enemy, bullet)) {
+                if (enemy.checkCollision(bullet)) {
                     GameManager.getInstance().addScore(enemy.getPoints());
                     activeExplosions.add(enemy.destroy());
                     bulletIterator.remove();
@@ -227,7 +263,7 @@ public class EmaillInvaderController {
             while (barrierIterator.hasNext()) {
                 Barrier barrier = barrierIterator.next();
 
-                if (CollisionManager.checkCollision(barrier, bullet)) {
+                if (barrier.checkCollision(bullet)) {
                     bulletIterator.remove();
                     barrier.takeDamage();
                     if (barrier.isDestroyed()) {
@@ -240,6 +276,9 @@ public class EmaillInvaderController {
 
     }
 
+    /**
+     * Aktualisiert die Positionen der Feinde.
+     */
     private void updateEnemyPositions() {
         double maxX = 0;
         double minX = gameCanvas.getWidth();
@@ -289,7 +328,9 @@ public class EmaillInvaderController {
         }
     }
 
-
+    /**
+     * Aktualisiert die Geschosse der Feinde.
+     */
     private void updateEnemyBullets() {
         for (Enemy enemy : enemies) {
             Iterator<EnemyBullet> it = enemy.getEnemyBullets().iterator();
@@ -303,6 +344,9 @@ public class EmaillInvaderController {
         }
     }
 
+    /**
+     * Aktualisiert die aktiven Boni im Spiel.
+     */
     private void updateBonuses() {
         Iterator<Bonus> bonusIterator = activeBonuses.iterator();
         while (bonusIterator.hasNext()) {
@@ -316,35 +360,41 @@ public class EmaillInvaderController {
 
             if (bonus.getTyp() == 4) {
                 removeEnemiesOnPath(bonus);
-                if (CollisionManager.checkCollision(player, bonus)) {
+                if (player.checkCollision(bonus)) {
                     applyBonusAndRemove(bonus, bonusIterator);
                 }
                 continue; // Zum nächsten Bonus springen
             }
 
-            if (CollisionManager.checkCollision(player, bonus)) {
+            if (player.checkCollision(bonus)) {
                 applyBonusAndRemove(bonus, bonusIterator);
             }
         }
     }
 
+
     private void removeEnemiesOnPath(Bonus bonus) {
         Iterator<Enemy> enemyIterator = enemies.iterator();
         while (enemyIterator.hasNext()) {
             Enemy enemy = enemyIterator.next();
-            if (CollisionManager.checkCollision(bonus, enemy)) {
+            if (bonus.checkCollision(enemy)) {
                 activeExplosions.add(enemy.destroy());
                 enemyIterator.remove();
             }
         }
     }
 
+
     private void applyBonusAndRemove(Bonus bonus, Iterator<Bonus> bonusIterator) {
         bonus.applyBonus(player);
         bonusIterator.remove();
     }
 
-
+    /**
+     * Aktualisiert das Spielgeschehen basierend auf der Zeit und dem Zustand des Spiels.
+     *
+     * @param now Die aktuelle Zeit in Nanosekunden.
+     */
     private void updateGame(long now) {
         updateBarriers();
         updateBonuses();
@@ -401,6 +451,9 @@ public class EmaillInvaderController {
         }
     }
 
+    /**
+     * Zeichnet das Spielgeschehen auf das Canvas.
+     */
     private void renderGame() {
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
         scoreText.setText("Score: " + GameManager.getInstance().getScore());
@@ -416,7 +469,9 @@ public class EmaillInvaderController {
         renderer.renderExplosions(activeExplosions);
     }
 
-
+    /**
+     * Beendet das Spiel und zeigt den Game-Over-Bildschirm.
+     */
     private void gameOver() {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("GameOverView.fxml"));

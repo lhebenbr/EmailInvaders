@@ -65,4 +65,14 @@ public abstract class Entity {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public boolean checkCollision(final Entity other) {
+        if (other != null) {
+            return x < other.x + other.width
+                    && x + getWidth() > other.x
+                    && y < other.getY() + other.height
+                    && y + height > other.y;
+        }
+        return false;
+    }
 }

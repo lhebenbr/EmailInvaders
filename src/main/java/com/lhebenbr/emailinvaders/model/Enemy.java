@@ -50,6 +50,12 @@ public class Enemy extends Entity {
         return enemyBullets;
     }
 
+    /**
+     * Führt das Schießen der Gegner aus und fügt Geschosse zur Liste hinzu.
+     *
+     * @param enemies Die Liste der Gegner, von denen geschossen werden soll.
+     * @param random  Eine Instanz von {@code Random} für die Zufallsgenerierung.
+     */
     public void enemyShoot(List<Enemy> enemies, Random random) {
         double shootProbability = calculateShootProbability(enemies);
         for (Enemy enemy : enemies) {
@@ -72,6 +78,11 @@ public class Enemy extends Entity {
         return Math.min(baseProbability * multiplier, maxProbability);
     }
 
+    /**
+     * Zerstört den Gegner und erzeugt eine neue Explosion.
+     *
+     * @return Eine neue {@code Explosion}-Instanz oder null, falls der Gegner bereits zerstört wurde.
+     */
     public Explosion destroy() {
         if (!isDestroyed) {
             SoundManager.getInstance().playSound("src/main/resources/com/lhebenbr/emailinvaders/assets/music/explosion.wav", false);
