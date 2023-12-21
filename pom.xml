@@ -14,6 +14,50 @@
         <junit.version>5.9.2</junit.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>linux</id>
+            <build>
+                <finalName>${project.artifactId}-linux</finalName>
+            </build>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <javafx.platform>linux</javafx.platform>
+            </properties>
+        </profile>
+        <profile>
+            <id>windows</id>
+            <build>
+                <finalName>${project.artifactId}-windows</finalName>
+            </build>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <javafx.platform>windows</javafx.platform>
+            </properties>
+        </profile>
+        <profile>
+            <id>mac</id>  <build>
+            <finalName>${project.artifactId}-mac</finalName>
+        </build>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <properties>
+                <javafx.platform>mac</javafx.platform>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -25,17 +69,6 @@
             <artifactId>javafx-fxml</artifactId>
             <version>17.0.6</version>
         </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-media</artifactId>
-            <version>17.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-base</artifactId>
-            <version>17.0.6</version>
-        </dependency>
-
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -48,6 +81,26 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21-ea+24</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21-ea+24</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21-ea+24</version>
         </dependency>
     </dependencies>
 

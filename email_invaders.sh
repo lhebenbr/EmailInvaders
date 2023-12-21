@@ -6,8 +6,21 @@ if ! type java > /dev/null; then
     exit 1
 fi
 
-# Pfad zur JAR-Datei
-JAR_PATH="target/EmailInvaders-1.0-SNAPSHOT.jar"
+# Determine OS and set the corresponding JAR
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    JAR_PATH="libs/EmailInvaders-linux.jar"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    JAR_PATH="libs/EmailInvaders-mac.jar"
+elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "win32" ]]; then
+    JAR_PATH="libs/EmailInvaders-windows.jar"
+else
+    echo "Unbekanntes Betriebssystem: $OSTYPE"
+    exit 1
+fi
+
+# Führe die entsprechende JAR-Datei aus
+java -jar "$JAR_PATH"
+
 
 # Überprüfe, ob die JAR-Datei existiert
 if [ ! -f "$JAR_PATH" ]; then
@@ -17,7 +30,4 @@ fi
 
 # Führe die JAR-Datei aus
 echo "Starte Email Invaders..."
-# Lädt auch plattform abhängige Dependencies wie JavaFX
-mvn clean package
-
 java -jar "$JAR_PATH"
