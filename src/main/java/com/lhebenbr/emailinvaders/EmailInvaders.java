@@ -1,6 +1,7 @@
 package com.lhebenbr.emailinvaders;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,6 +12,9 @@ import static com.lhebenbr.emailinvaders.Config.HEIGHT;
 import static com.lhebenbr.emailinvaders.Config.WIDTH;
 
 public class EmailInvaders extends Application {
+
+    public static Event EMAIL_INVADERS_EXIT = new EmailInvadersExit();
+
 
     public void startGame(Stage primaryStage) throws Exception {
         start(primaryStage);

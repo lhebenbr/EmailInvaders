@@ -7,7 +7,7 @@ if ! type java > /dev/null; then
 fi
 
 # Pfad zur JAR-Datei
-JAR_PATH="src/main/java/com/lhebenbr/emailinvaders/EmailInvaders-1.0-SNAPSHOT.jar"
+JAR_PATH="target/EmailInvaders-1.0-SNAPSHOT.jar"
 
 # Überprüfe, ob die JAR-Datei existiert
 if [ ! -f "$JAR_PATH" ]; then
@@ -17,4 +17,7 @@ fi
 
 # Führe die JAR-Datei aus
 echo "Starte Email Invaders..."
+# Lädt auch plattform abhängige Dependencies wie JavaFX
+mvn clean package
+
 java -jar "$JAR_PATH"

@@ -65,6 +65,8 @@ public class GameManager {
     }
 
     public static void exitGame(Stage stage) {
+        EmailInvadersExit exitEvent = new EmailInvadersExit();
+        stage.fireEvent(exitEvent);
         stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 

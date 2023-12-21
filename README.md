@@ -1,5 +1,10 @@
 # Email Invaders
 
+## Ausführung
+
+chmod +x email_invaders.sh
+./email_invaders.sh
+
 _______________________________________________________________________________________________________________________
 
 ## Beschreibung
