@@ -7,7 +7,7 @@ if ! type java > /dev/null; then
 fi
 
 # Pfad zur JAR-Datei
-JAR_PATH="out/artifacts/EmailInvaders_jar/EmailInvaders.jar"
+JAR_PATH="src/main/java/com/lhebenbr/emailinvaders/EmailInvaders-1.0-SNAPSHOT.jar"
 
 # Überprüfe, ob die JAR-Datei existiert
 if [ ! -f "$JAR_PATH" ]; then
