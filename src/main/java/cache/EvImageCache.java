@@ -10,7 +10,7 @@ public class EvImageCache {
 
     public static Image getImage(String path) {
         if (!cache.containsKey(path)) {
-            cache.put(path, new Image(path));
+            cache.put(path, new Image(EvImageCache.class.getResourceAsStream(path)));
         }
         return cache.get(path);
     }

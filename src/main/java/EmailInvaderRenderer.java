@@ -67,7 +67,7 @@ public class EmailInvaderRenderer {
         if (player.getLife() != null) {
             int heartX = 1860;
             for (int i = 0; i < player.getLife(); i++) {
-                gc.drawImage(EvImageCache.getImage("file:src/main/resources/assets/textures/heart.png"), heartX, HEART_Y, HEART_WIDTH, HEART_HEIGHT);
+                gc.drawImage(EvImageCache.getImage("/assets/textures/heart.png"), heartX, HEART_Y, HEART_WIDTH, HEART_HEIGHT);
                 heartX -= 50;
             }
         }

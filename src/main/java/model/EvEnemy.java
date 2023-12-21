@@ -96,7 +96,7 @@ public class EvEnemy extends EvEntity {
     private Image[] getExplosionFrames() {
         Image[] frames = new Image[9];
         for (int i = 0; i < 9; i++) {
-            frames[i] = EvImageCache.getImage("file:src/main/resources/assets/textures/explosion_" + (i + 1) + ".png");
+            frames[i] = EvImageCache.getImage("/assets/textures/explosion_" + (i + 1) + ".png");
         }
         return frames;
     }

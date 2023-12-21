@@ -51,7 +51,7 @@ public class EmaillInvaderController {
     public void initialize() {
         EvGameManager.getInstance().setScore(0);
         EvSoundManager.getInstance().playSound("/assets/music/game_start.wav", false);
-        player = new EvPlayer(PLAYER_START_X, PLAYER_START_Y, EvImageCache.getImage("file:src/main/resources/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_SPEED);
+        player = new EvPlayer(PLAYER_START_X, PLAYER_START_Y, EvImageCache.getImage("/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_SPEED);
         spawnBarriers();
         spawnEnemies();
 
@@ -103,7 +103,7 @@ public class EmaillInvaderController {
      * Erzeugt Barrieren im Spiel.
      */
     private void spawnBarriers() {
-        Image image = EvImageCache.getImage("file:src/main/resources/assets/textures/barrier_1.png");
+        Image image = EvImageCache.getImage("/assets/textures/barrier_1.png");
         int startWidth = 150;
         int barrierWidth = 200;
         int barrierHeight = 70;
@@ -133,7 +133,7 @@ public class EmaillInvaderController {
      */
     private Image selectBarrierImage(EvBarrier evBarrier) {
         int i = evBarrier.getHealth() <= 10 ? 3 : evBarrier.getHealth() <= 20 ? 2 : 1;
-        Image barrierImage = EvImageCache.getImage("file:src/main/resources/assets/textures/barrier_" + i + ".png");
+        Image barrierImage = EvImageCache.getImage("/assets/textures/barrier_" + i + ".png");
         return barrierImage;
     }
 
