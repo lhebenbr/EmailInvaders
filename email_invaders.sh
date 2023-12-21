@@ -18,8 +18,13 @@ else
     exit 1
 fi
 
-# Führe die entsprechende JAR-Datei aus
-java -jar "$JAR_PATH"
+
+# Ermittle das Verzeichnis, in dem das Skript liegt
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# Aktualisiere den JAR_PATH, um den absoluten Pfad zu nutzen
+JAR_PATH="$DIR/libs/EmailInvaders-linux.jar"
+
 
 
 # Überprüfe, ob die JAR-Datei existiert

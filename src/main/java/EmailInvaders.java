@@ -35,7 +35,7 @@ public class EmailInvaders extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        EvSoundManager.getInstance().playSound("src/main/resources/assets/music/music.wav", true);
+        EvSoundManager.getInstance().playSound("/assets/music/music.wav", true);
         Font.loadFont(getClass().getResourceAsStream("assets/font/8bit_wonder.TTF"), 36);
         Scene scene = getScene();
         primaryStage.setTitle("Menu");

@@ -85,7 +85,7 @@ public class EvEnemy extends EvEntity {
      */
     public EvExplosion destroy() {
         if (!isDestroyed) {
-            EvSoundManager.getInstance().playSound("src/main/resources/assets/music/explosion.wav", false);
+            EvSoundManager.getInstance().playSound("/assets/music/explosion.wav", false);
             isDestroyed = true;
             Image[] explosionFrames = getExplosionFrames();
             return new EvExplosion(explosionFrames, x - 50, y - 60, EXPLOSION_WIDTH, EXPLOSION_HEIGHT);

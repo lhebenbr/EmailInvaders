@@ -50,7 +50,7 @@ public class EmaillInvaderController {
      */
     public void initialize() {
         EvGameManager.getInstance().setScore(0);
-        EvSoundManager.getInstance().playSound("src/main/resources/assets/music/game_start.wav", false);
+        EvSoundManager.getInstance().playSound("/assets/music/game_start.wav", false);
         player = new EvPlayer(PLAYER_START_X, PLAYER_START_Y, EvImageCache.getImage("file:src/main/resources/assets/textures/ship.png"), PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_SPEED);
         spawnBarriers();
         spawnEnemies();

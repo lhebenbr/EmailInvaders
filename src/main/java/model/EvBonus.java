@@ -38,7 +38,7 @@ public class EvBonus extends EvEntity {
 
 
     public void applyBonus(EvPlayer player) {
-        EvSoundManager.getInstance().playSound("src/main/resources/assets/music/powerup.wav", false);
+        EvSoundManager.getInstance().playSound("/assets/music/powerup.wav", false);
         switch (typ) {
             case 1:
                 if (player.getLife() < 3) {

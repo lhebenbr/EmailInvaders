@@ -18,7 +18,7 @@ public class EvSoundManager {
     }
 
     public void playSound(String path, boolean loop) {
-        AudioClip sound = soundCache.computeIfAbsent(path, p -> new AudioClip(new File(p).toURI().toString()));
+        AudioClip sound = soundCache.computeIfAbsent(path, p -> new AudioClip(getClass().getResource(p).toExternalForm()));
         sound.stop();
         if (loop) {
             sound.setCycleCount(AudioClip.INDEFINITE);

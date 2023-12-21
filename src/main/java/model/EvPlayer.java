@@ -49,7 +49,7 @@ public class EvPlayer extends EvEntity {
 
     public void loseLife() {
         if (life > 0) {
-            EvSoundManager.getInstance().playSound("src/main/resources/assets/music/damage.wav", false);
+            EvSoundManager.getInstance().playSound("/assets/music/damage.wav", false);
             life -= 1;
         }
     }
@@ -66,7 +66,7 @@ public class EvPlayer extends EvEntity {
         long currentTime = System.currentTimeMillis();
         if (canShoot(currentTime) || noLimit) {
             if (!noLimit) {
-                EvSoundManager.getInstance().playSound("src/main/resources/assets/music/laser.wav", false);
+                EvSoundManager.getInstance().playSound("/assets/music/laser.wav", false);
             }
             bullets.add(new EvPlayerBullet(x + 45, y, BULLET_WIDTH, BULLET_HEIGHT, BULLET_SPEED));
         }
