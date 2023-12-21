@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.text.Text?>
+<Pane stylesheets="@css/style.css"
+      xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml" fx:controller="EmaillInvaderController" >
+
+<children>
+    <Canvas fx:id="gameCanvas" height="1080" width="1920" />
+    <Text fx:id="scoreText" layoutX="10.0" layoutY="30.0" style="-fx-font-size: 20px; -fx-text-fill: yellow;" styleClass="custom-font"/>
+</children>
+
+</Pane>
