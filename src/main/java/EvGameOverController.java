@@ -8,6 +8,9 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import manager.EvGameManager;
 
+import static config.EvConfig.HEIGHT;
+import static config.EvConfig.WIDTH;
+
 public class EvGameOverController {
 
     @FXML
@@ -42,7 +45,7 @@ public class EvGameOverController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
             Parent menuView = loader.load();
             Stage stage = (Stage) restartButton.getScene().getWindow();
-            stage.setScene(new Scene(menuView));
+            stage.setScene(new Scene(menuView,WIDTH,HEIGHT));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
