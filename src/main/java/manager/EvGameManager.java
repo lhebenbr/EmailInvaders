@@ -4,13 +4,16 @@ import event.EmailInvadersExit;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
 
 public class EvGameManager {
-    private static final String HIGHSCORE_FILE_PATH = "src/main/java//highscore.txt";
-    private int highScore;
     private int score;
     private static EvGameManager instance;
 
@@ -22,28 +25,6 @@ public class EvGameManager {
     }
 
     public EvGameManager() {
-        loadHighScore();
-    }
-
-    private void loadHighScore() {
-        try {
-            String scoreString = new String(Files.readAllBytes(Paths.get(HIGHSCORE_FILE_PATH)));
-            highScore = Integer.parseInt(scoreString.trim());
-        } catch (IOException | NumberFormatException e) {
-            highScore = 0;
-        }
-    }
-
-    public void saveHighScore() {
-        try {
-            Files.write(Paths.get(HIGHSCORE_FILE_PATH), String.valueOf(highScore).getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public int getHighScore() {
-        return highScore;
     }
 
     public int getScore() {
@@ -56,13 +37,6 @@ public class EvGameManager {
 
     public void addScore(int score) {
         this.score += score;
-    }
-
-    public void updateHighscore() {
-        if (score > highScore) {
-            highScore = score;
-            saveHighScore();
-        }
     }
 
     public static void exitGame(Stage stage) {

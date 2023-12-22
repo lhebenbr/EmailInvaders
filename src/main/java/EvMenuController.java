@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.text.Text;
+
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import manager.EvGameManager;
@@ -23,22 +23,10 @@ public class EvMenuController {
     private Button startButton;
     @FXML
     private Button exitButton;
-    @FXML
-    private Text highscoreText;
 
-    /*
-    "Willkommen bei Email Invaders, dem Spiel, das dich in die vorderste Linie der Cyberverteidigung bringt!  Bevor es los geht, lass mich dir ein paar wichtige Informationen geben.
-
-Phishing-Mails sind betrügerische Nachrichten, die darauf abzielen, deine persönlichen Daten zu stehlen. Sie tarnen sich oft als dringende Anfragen von bekannten Institutionen oder als unwiderstehliche Angebote. Aber lass dich nicht täuschen! Ein Klick auf den falschen Link kann gefährliche Folgen haben.
-
-In Email Invaders ist es deine Aufgabe, dein digitales Territorium gegen eine Armada von bösartigen Phishing-Mails zu verteidigen. Benutze die Pfeiltasten, um dein Schiff zu steuern, und die Leertaste, um die Eindringlinge zu bekämpfen. Sammle Power-ups und erhalte Bonuspunkte, indem du die Bonusmail triffst. Aber sei vorsichtig – wenn die Mails zu nah kommen oder du zu oft getroffen wirst, ist das Spiel vorbei.
-
-Bereit für die Herausforderung? Dann lade deine Waffen und bereite dich darauf vor, dein Postfach zu beschützen. Das Spiel beginnt jetzt! Viel Erfolg!"
-     */
 
 
     public void initialize() {
-        highscoreText.setText("Highscore: " + String.valueOf(EvGameManager.getInstance().getHighScore()));
         startButton.setFocusTraversable(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), startButton);
         fadeTransition.setFromValue(1.0);

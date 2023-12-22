@@ -20,11 +20,11 @@ public class EvGameOverController {
     private TextFlow textFlow;
 
     @FXML
-    private Text highscoreText;
+    private Text ScoreText;
 
     @FXML
     private void initialize() {
-        highscoreText.setText("Highscore: " + String.valueOf(EvGameManager.getInstance().getHighScore()));
+        ScoreText.setText("Score: " + String.valueOf(EvGameManager.getInstance().getScore()));
 
         Text bodyContent = new Text("Lieber E-Mail Benutzer,\n\n" +
                 "Wir migrieren alle E-Mail-Konten auf neue Outlook Web App 2023...:");

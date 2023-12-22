@@ -42,6 +42,8 @@ public class EmaillInvaderController {
     private final Random random = new Random();
     private long bonusEmailTimer = 0;
     private long lastBonusSpawnTime = 0;
+    private static final long UPDATE_INTERVAL = 16_000_000; // update alle 16ms
+    private long lastUpdateTime = 0;
 
 
     /**
@@ -92,8 +94,11 @@ public class EmaillInvaderController {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                updateGame(now);
-                renderGame();
+                if (now - lastUpdateTime >= UPDATE_INTERVAL) {
+                    updateGame(now);
+                    renderGame();
+                    lastUpdateTime = now;
+                }
             }
         };
         timer.start();
@@ -478,7 +483,6 @@ public class EmaillInvaderController {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("GameOverView.fxml"));
             Parent gameOverRoot = loader.load();
-            EvGameManager.getInstance().updateHighscore();
 
             Scene gameOverScene = new Scene(gameOverRoot);
 
