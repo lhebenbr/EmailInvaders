@@ -23,7 +23,7 @@ public final class EvConfig {
     public static final int ENEMY_POINTS_4 = 600;
     public static final int BULLET_WIDTH = 20;
     public static final int BULLET_HEIGHT = 20;
-    public static final int BULLET_SPEED = 13;
+    public static final double BULLET_SPEED = 13;
     public static final int HEART_X = 1860;
     public static final int HEART_Y = 10;
     public static final int HEART_WIDTH = 40;

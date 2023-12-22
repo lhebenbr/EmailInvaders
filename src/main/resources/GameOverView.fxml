@@ -14,7 +14,10 @@
     <Label text="Game Over" layoutX="600.0" layoutY="100.0" style="-fx-font-size: 80px; -fx-text-fill: yellow;"
            styleClass="custom-font"/>
 
-    <Text fx:id="ScoreText" layoutX="650.0" layoutY="250.0" style="-fx-font-size: 50px; -fx-text-fill: yellow;"
+    <Text fx:id="highscoreText" layoutX="650.0" layoutY="250.0" style="-fx-font-size: 50px; -fx-text-fill: yellow;"
+          styleClass="custom-font"/>
+
+    <Text fx:id="scoreText" layoutX="800.0" layoutY="350.0" style="-fx-font-size: 50px; -fx-text-fill: yellow;"
           styleClass="custom-font"/>
 
     <TextFlow fx:id="textFlow" layoutX="400.0" layoutY="500.0" style="-fx-font-size: 24px; -fx-text-fill: yellow;"
@@ -25,7 +28,7 @@
     <Button fx:id="restartButton" layoutX="800.0" layoutY="700.0" mnemonicParsing="false" text="Restart"
             style="-fx-background-color: transparent; -fx-font-size: 40px; -fx-text-fill: yellow;"
             styleClass="custom-font" onAction="#onRestartButtonClicked"/>
-    <Button fx:id="exitButton" layoutX="650.0" layoutY="800.0" mnemonicParsing="false" text="Exit Game"
+    <Button fx:id="exitButton" layoutX="700.0" layoutY="800.0" mnemonicParsing="false" text="Exit Game"
             style="-fx-background-color: transparent; -fx-font-size: 60px; -fx-text-fill: yellow;"
             styleClass="custom-font" onAction="#onExitButtonClicked"/>
 </AnchorPane>

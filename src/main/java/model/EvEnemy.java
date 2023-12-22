@@ -15,6 +15,7 @@ public class EvEnemy extends EvEntity {
     private int points;
     private double speed;
     private boolean isDestroyed = false;
+
     private final List<EvEnemyBullet> enemyBullets = new ArrayList<>();
 
     public EvEnemy(double x, double y, Image image, int width, int height, int points, int speed) {
@@ -56,26 +57,28 @@ public class EvEnemy extends EvEntity {
      * @param enemies Die Liste der Gegner, von denen geschossen werden soll.
      * @param random  Eine Instanz von {@code Random} für die Zufallsgenerierung.
      */
-    public void enemyShoot(List<EvEnemy> enemies, Random random) {
-        double shootProbability = calculateShootProbability(enemies);
+    public void enemyShoot(List<EvEnemy> enemies, Random random, int wave) {
+        double shootProbability = calculateShootProbability(wave);
         for (EvEnemy enemy : enemies) {
             if ((random.nextDouble()) < shootProbability) {
-                enemy.getEnemyBullets().add(new EvEnemyBullet(enemy.getX() + ENEMY_WIDTH / 2, enemy.getY(), BULLET_WIDTH, BULLET_HEIGHT, BULLET_SPEED));
+                enemy.getEnemyBullets().add(new EvEnemyBullet(enemy.getX() + ENEMY_WIDTH / 2, enemy.getY(), BULLET_WIDTH, BULLET_HEIGHT, BULLET_SPEED + ((double) wave/10)));
             }
         }
     }
 
-    private double calculateShootProbability(List<EvEnemy> enemies) {
+    private double calculateShootProbability( int wave) {
         // Basis-Schießwahrscheinlichkeit
-        double baseProbability = 0.00015;
+        double baseProbability = 0.00005;
 
-        // Erhöhte Wahrscheinlichkeit, wenn weniger Gegner vorhanden sind
-        double multiplier = 1.0 + (1.0 - ((double) enemies.size() / (ENEMIES_PER_ROW * ENEMY_ROWS)));
+
+        // Erhöhen Sie die Basis-Schießwahrscheinlichkeit mit jeder Welle
+        double waveAdjustedProbability = baseProbability * wave;
+
 
         // Maximalwert
-        double maxProbability = 0.00045;
+        double maxProbability = 0.00035;
 
-        return Math.min(baseProbability * multiplier, maxProbability);
+        return Math.min(waveAdjustedProbability, maxProbability);
     }
 
     /**

@@ -6,8 +6,9 @@
       xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml" fx:controller="EmaillInvaderController" >
 
 <children>
-    <Canvas fx:id="gameCanvas" height="1080" width="1920" />
+    <Canvas fx:id="gameCanvas" height="1200" width="1920" />
     <Text fx:id="scoreText" layoutX="10.0" layoutY="30.0" style="-fx-font-size: 20px; -fx-text-fill: yellow;" styleClass="custom-font"/>
+    <Text fx:id="lvlText" layoutX="10.0" layoutY="50.0" style="-fx-font-size: 20px; -fx-text-fill: yellow;" styleClass="custom-font"/>
 </children>
 
 </Pane>

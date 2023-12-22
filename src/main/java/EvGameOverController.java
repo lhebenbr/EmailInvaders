@@ -8,9 +8,6 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import manager.EvGameManager;
 
-import static config.EvConfig.HEIGHT;
-import static config.EvConfig.WIDTH;
-
 public class EvGameOverController {
 
     @FXML
@@ -23,11 +20,15 @@ public class EvGameOverController {
     private TextFlow textFlow;
 
     @FXML
-    private Text ScoreText;
+    private Text highscoreText;
+
+    @FXML
+    private Text scoreText;
 
     @FXML
     private void initialize() {
-        ScoreText.setText("Score: " + String.valueOf(EvGameManager.getInstance().getScore()));
+        highscoreText.setText("Highscore: " + String.valueOf(EvDatabaseManager.getInstance().getMaxScore()));
+        scoreText.setText("Score: " + String.valueOf(EvGameManager.getInstance().getScore()));
 
         Text bodyContent = new Text("Lieber E-Mail Benutzer,\n\n" +
                 "Wir migrieren alle E-Mail-Konten auf neue Outlook Web App 2023...:");
@@ -45,7 +46,7 @@ public class EvGameOverController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
             Parent menuView = loader.load();
             Stage stage = (Stage) restartButton.getScene().getWindow();
-            stage.setScene(new Scene(menuView,WIDTH,HEIGHT));
+            stage.setScene(new Scene(menuView));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

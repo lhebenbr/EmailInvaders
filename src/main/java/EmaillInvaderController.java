@@ -1,6 +1,8 @@
 import cache.EvImageCache;
 import config.EvConfig;
 import javafx.animation.AnimationTimer;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,6 +31,9 @@ public class EmaillInvaderController {
     @FXML
     private Text scoreText;
 
+    @FXML
+    private Text lvlText;
+
     private boolean movingLeft = false;
     private boolean movingRight = false;
     private boolean isSpacePressed = false;
@@ -44,7 +49,7 @@ public class EmaillInvaderController {
     private long lastBonusSpawnTime = 0;
     private static final long UPDATE_INTERVAL = 16_000_000; // update alle 16ms
     private long lastUpdateTime = 0;
-
+    private IntegerProperty currentWave = new SimpleIntegerProperty(0);
 
     /**
      * Initialisiert das Spiel, indem die Spiellogik und die Anfangszustände wie Spieler,
@@ -148,6 +153,7 @@ public class EmaillInvaderController {
      */
     private void spawnEnemies() {
         enemies.clear();
+        currentWave.set(currentWave.get() + 1);
         double startWidth = 250;
         double startHeight = 100;
         for (int y = 0; y < ENEMY_ROWS; y++) {
@@ -408,6 +414,7 @@ public class EmaillInvaderController {
         if (enemies.isEmpty()) {
             spawnEnemies();
         }
+
         Iterator<EvPlayerBullet> it = player.getBullets().iterator();
         while (it.hasNext()) {
             EvPlayerBullet bullet = it.next();
@@ -433,7 +440,7 @@ public class EmaillInvaderController {
         if (isSpacePressed) {
             player.shoot();
         }
-        enemies.forEach(enemy -> enemy.enemyShoot(enemies, random));
+        enemies.forEach(enemy -> enemy.enemyShoot(enemies, random, currentWave.get()));
         updateEnemyPositions();
         updateEnemyBullets();
         updateBarriers();
@@ -464,6 +471,7 @@ public class EmaillInvaderController {
     private void renderGame() {
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
         scoreText.setText("Score: " + EvGameManager.getInstance().getScore());
+        lvlText.setText("Level: " + currentWave.get());
         gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
         EmailInvaderRenderer renderer = new EmailInvaderRenderer(gc);
         renderer.renderPlayer(player);
@@ -483,6 +491,9 @@ public class EmaillInvaderController {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("GameOverView.fxml"));
             Parent gameOverRoot = loader.load();
+            if(EvGameManager.getInstance().getScore() > EvDatabaseManager.getInstance().getMaxScore()) {
+                EvDatabaseManager.getInstance().insert(EvGameManager.getInstance().getScore());
+            }
 
             Scene gameOverScene = new Scene(gameOverRoot);
 

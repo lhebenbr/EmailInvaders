@@ -23,9 +23,11 @@ public class EmailInvaders extends Application {
 
     public Scene getScene() {
         try {
+            EvSoundManager.getInstance().playSound("/assets/music/music.wav", true);
+            Font.loadFont(getClass().getResourceAsStream("assets/font/8bit_wonder.TTF"), 36);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
             Parent gameRoot = loader.load();
-            return new Scene(gameRoot, WIDTH, HEIGHT);
+            return new Scene(gameRoot);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,8 +37,6 @@ public class EmailInvaders extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        EvSoundManager.getInstance().playSound("/assets/music/music.wav", true);
-        Font.loadFont(getClass().getResourceAsStream("assets/font/8bit_wonder.TTF"), 36);
         Scene scene = getScene();
         primaryStage.setTitle("Menu");
         primaryStage.setScene(scene);

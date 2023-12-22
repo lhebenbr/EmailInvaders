@@ -7,18 +7,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import manager.EvGameManager;
 
 import java.io.IOException;
 
-import static config.EvConfig.HEIGHT;
-import static config.EvConfig.WIDTH;
-
 
 public class EvMenuController {
 
+    @FXML
+    private Text highscoreText;
     @FXML
     private Button startButton;
     @FXML
@@ -27,6 +27,8 @@ public class EvMenuController {
 
 
     public void initialize() {
+        EvDatabaseManager.getInstance().init();
+        highscoreText.setText("Highscore: " + String.valueOf(EvDatabaseManager.getInstance().getMaxScore()));
         startButton.setFocusTraversable(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), startButton);
         fadeTransition.setFromValue(1.0);
@@ -34,6 +36,8 @@ public class EvMenuController {
         fadeTransition.setCycleCount(Timeline.INDEFINITE);
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
+
+
 
         startButton.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.SPACE) {
@@ -48,7 +52,7 @@ public class EvMenuController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EmailInvaderView.fxml"));
             Parent gameRoot = loader.load();
-            Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT);
+            Scene gameScene = new Scene(gameRoot);
             Stage stage = (Stage) startButton.getScene().getWindow();
 
             stage.setScene(gameScene);
