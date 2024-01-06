@@ -46,7 +46,8 @@ public class EvGameOverController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
             Parent menuView = loader.load();
             Stage stage = (Stage) restartButton.getScene().getWindow();
-            stage.setScene(new Scene(menuView));
+            EvGameManager.getInstance().setCurrentScene(new Scene(menuView));
+            stage.setScene(EvGameManager.getInstance().getCurrentScene());
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,7 +56,6 @@ public class EvGameOverController {
 
     @FXML
     private void onExitButtonClicked() {
-        Stage stage = (Stage) exitButton.getScene().getWindow();
-        EvGameManager.exitGame(stage);
+        EvGameManager.getInstance().fireEvent();
     }
 }

@@ -44,9 +44,10 @@
             </properties>
         </profile>
         <profile>
-            <id>mac</id>  <build>
-            <finalName>${project.artifactId}-mac</finalName>
-        </build>
+            <id>mac</id>
+            <build>
+                <finalName>${project.artifactId}-mac</finalName>
+            </build>
             <activation>
                 <os>
                     <family>mac</family>
@@ -59,18 +60,6 @@
     </profiles>
 
     <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>

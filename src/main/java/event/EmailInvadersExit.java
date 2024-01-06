@@ -13,4 +13,5 @@ public class EmailInvadersExit extends Event {
     public EmailInvadersExit() {
         super(EMAIL_INVADERS_EXIT);
     }
+
 }

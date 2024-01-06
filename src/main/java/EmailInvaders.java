@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import manager.EvGameManager;
 import manager.EvSoundManager;
 
 import static config.EvConfig.HEIGHT;
@@ -38,6 +39,7 @@ public class EmailInvaders extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Scene scene = getScene();
+        EvGameManager.getInstance().setCurrentScene(scene);
         primaryStage.setTitle("Menu");
         primaryStage.setScene(scene);
         primaryStage.show();

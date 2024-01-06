@@ -52,48 +52,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.EamilInvaders.executor": "Run",
-    "Application.EamilInvadersApplication.executor": "Run",
-    "Application.EvMain.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/weuli/projekte/EmailInvaders/libs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.saveactions",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.EamilInvaders.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EamilInvadersApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EvMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/weuli/projekte/EmailInvaders/libs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ],
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libs" />
+      <recent name="$PROJECT_DIR$/libs/EmailInvaders-mac" />
       <recent name="$PROJECT_DIR$/src/main/resources/assets/cody" />
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/lhebenbr/emailinvaders/assets/textures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libs" />
@@ -183,7 +186,14 @@
       <workItem from="1702988127794" duration="250000" />
       <workItem from="1703025901861" duration="2331000" />
       <workItem from="1703083957200" duration="1473000" />
-      <workItem from="1703178882192" duration="21453000" />
+      <workItem from="1703178882192" duration="21471000" />
+      <workItem from="1703241780191" duration="388000" />
+      <workItem from="1703250983378" duration="15530000" />
+      <workItem from="1703806625326" duration="302000" />
+      <workItem from="1703807749409" duration="163000" />
+      <workItem from="1704305104191" duration="601000" />
+      <workItem from="1704459841148" duration="600000" />
+      <workItem from="1704556316660" duration="8636000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -361,7 +371,39 @@
       <option name="project" value="LOCAL" />
       <updated>1703220351335</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="..">
+      <option name="closed" value="true" />
+      <created>1703220354992</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1703220354992</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix">
+      <option name="closed" value="true" />
+      <created>1703241878113</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1703241878113</updated>
+    </task>
+    <task id="LOCAL-00025" summary="neue jars">
+      <option name="closed" value="true" />
+      <created>1703241988961</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1703241988961</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Highscore">
+      <option name="closed" value="true" />
+      <created>1703265689268</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1703265689268</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +451,10 @@
     <MESSAGE value="Anpassungen pfade" />
     <MESSAGE value="Anpassungen für performance" />
     <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
+    <MESSAGE value="fix" />
+    <MESSAGE value="neue jars" />
+    <MESSAGE value="Highscore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Highscore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -418,6 +463,11 @@
           <url>jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-media/16/javafx-media-16-linux.jar!/javafx/scene/media/MediaException.class</url>
           <line>14</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/EvDatabaseManager.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
