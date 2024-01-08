@@ -1,5 +1,10 @@
 # Email Invaders
 
+## Ausführung
+
+chmod +x email_invaders.sh
+./email_invaders.sh
+
 _______________________________________________________________________________________________________________________
 
 ## Beschreibung
@@ -54,20 +59,20 @@ unterschiedlichen Effekten können aufsammelt werden, um dir Vorteile im Kampf g
 _______________________________________________________________________________________________________________________
 
 + 1000 Bonuspunkte
-  ![Power-up 1](src/main/resources/com/lhebenbr/emailinvaders/assets/textures/point_bonus.png?raw=true)
+  ![Power-up 1](src/main/resources/assets/textures/point_bonus.png?raw=true)
 
 _______________________________________________________________________________________________________________________
 
 + Man verliert Leben
 + Zerstört Mails auf dem Weg
-  ![Power-up 2](src/main/resources/com/lhebenbr/emailinvaders/assets/textures/skull.png?raw=true)
+  ![Power-up 2](src/main/resources/assets/textures/skull.png?raw=true)
 
 _______________________________________________________________________________________________________________________
 
 + Man kann für 2 Sekunden schneller schießen
-  ![Power-up 3](src/main/resources/com/lhebenbr/emailinvaders/assets/textures/powerup_bonus.png?raw=true)
+  ![Power-up 3](src/main/resources/assets/textures/powerup_bonus.png?raw=true)
 
 _______________________________________________________________________________________________________________________
 
 + Man gewinnt Leben dazu, aber man kann nicht mehr als 3 Leben haben
-  ![Power-up 4](src/main/resources/com/lhebenbr/emailinvaders/assets/textures/heart_bonus.png?raw=true)
+  ![Power-up 4](src/main/resources/assets/textures/heart_bonus.png?raw=true)
