@@ -8,8 +8,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import manager.EvSoundManager;
 
-import static config.EvConfig.HEIGHT;
-import static config.EvConfig.WIDTH;
 
 
 public class EmailInvaders extends Application {

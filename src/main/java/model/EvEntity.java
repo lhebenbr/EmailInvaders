@@ -66,6 +66,14 @@ public abstract class EvEntity {
         this.height = height;
     }
 
+    /**
+     * Überprüft, ob eine Kollision zwischen dieser Entität und einer anderen Entität stattfindet.
+     * Die Methode verwendet eine rechteckige Kollisionsabfrage, um festzustellen, ob sich die
+     * Grenzen der beiden Entitäten überschneiden.
+     *
+     * @param other Die andere Entität, mit der auf Kollision überprüft werden soll.
+     * @return {@code true}, wenn eine Kollision festgestellt wird, sonst {@code false}.
+     */
     public boolean checkCollision(final EvEntity other) {
         if (other != null) {
             return x < other.x + other.width

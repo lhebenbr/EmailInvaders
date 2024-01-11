@@ -10,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import manager.EvDatabaseManager;
 import manager.EvGameManager;
 
 import java.io.IOException;

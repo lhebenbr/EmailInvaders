@@ -4,6 +4,10 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * Die Klasse {@code EvExplosion} stellt eine Explosion im Spiel dar.
+ * Sie verwendet eine Animation, um die Explosion zu visualisieren.
+ */
 public class EvExplosion {
     private ImageView imageView;
     private Image[] frames;
@@ -14,6 +18,15 @@ public class EvExplosion {
     private int width;
     private int height;
 
+    /**
+     * Konstruktor für {@code EvExplosion}.
+     *
+     * @param frames Die Bildfolge für die Explosionsanimation.
+     * @param x      Die X-Position der Explosion auf dem Bildschirm.
+     * @param y      Die Y-Position der Explosion auf dem Bildschirm.
+     * @param width  Die Breite der Explosionsanimation.
+     * @param height Die Höhe der Explosionsanimation.
+     */
     public EvExplosion(Image[] frames, double x, double y, int width, int height) {
         this.frames = frames;
         imageView = new ImageView(frames[0]);
@@ -26,11 +39,14 @@ public class EvExplosion {
         startAnimationTimer();
     }
 
+    /**
+     * Startet den Timer für die Animationssteuerung.
+     */
     private void startAnimationTimer() {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                if (now - lastUpdate >= 5_000_000) { // update frame every 50ms
+                if (now - lastUpdate >= 5_000_000) { // Frame-Update alle 50ms
                     if (currentFrame < frames.length) {
                         imageView.setImage(frames[currentFrame++]);
                     } else {

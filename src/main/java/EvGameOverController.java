@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import manager.EvDatabaseManager;
 import manager.EvGameManager;
 
 public class EvGameOverController {
