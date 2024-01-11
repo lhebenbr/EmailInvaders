@@ -4,18 +4,18 @@ import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import manager.EvGameManager;
 import manager.EvSoundManager;
 
+import static config.EvConfig.HEIGHT;
+import static config.EvConfig.WIDTH;
+
 
 public class EmailInvaders extends Application {
 
     public static Event EMAIL_INVADERS_EXIT = new EmailInvadersExit();
-
 
 
     public void startGame(Stage primaryStage) throws Exception {

@@ -10,9 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74f2ee33-8b83-4637-abe1-f03efd64e25e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/plan.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/manager/EvGameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/EvGameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EmaillInvaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EmaillInvaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/EnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lhebenbr/emailinvaders/model/Enemy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,9 +194,6 @@
       <workItem from="1704305104191" duration="601000" />
       <workItem from="1704459841148" duration="600000" />
       <workItem from="1704556316660" duration="8636000" />
-      <workItem from="1704584803900" duration="1064000" />
-      <workItem from="1704633643596" duration="3369000" />
-      <workItem from="1704648534488" duration="1189000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -404,23 +403,7 @@
       <option name="project" value="LOCAL" />
       <updated>1703265689268</updated>
     </task>
-    <task id="LOCAL-00027" summary="anpassung für integration">
-      <option name="closed" value="true" />
-      <created>1704584479970</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1704584479970</updated>
-    </task>
-    <task id="LOCAL-00028" summary="anpassung für integration">
-      <option name="closed" value="true" />
-      <created>1704584524944</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1704584524944</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,8 +454,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="neue jars" />
     <MESSAGE value="Highscore" />
-    <MESSAGE value="anpassung für integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="anpassung für integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Highscore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
