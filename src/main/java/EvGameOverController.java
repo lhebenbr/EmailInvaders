@@ -20,10 +20,14 @@ public class EvGameOverController {
     private TextFlow textFlow;
 
     @FXML
+    private Text highscoreText;
+
+    @FXML
     private Text scoreText;
 
     @FXML
     private void initialize() {
+        highscoreText.setText("Highscore: " + String.valueOf(EvDatabaseManager.getInstance().getMaxScore()));
         scoreText.setText("Score: " + String.valueOf(EvGameManager.getInstance().getScore()));
 
         Text bodyContent = new Text("Lieber E-Mail Benutzer,\n\n" +

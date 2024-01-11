@@ -19,6 +19,8 @@ import java.io.IOException;
 public class EvMenuController {
 
     @FXML
+    private Text highscoreText;
+    @FXML
     private Button startButton;
     @FXML
     private Button exitButton;
@@ -26,6 +28,8 @@ public class EvMenuController {
 
 
     public void initialize() {
+        EvDatabaseManager.getInstance().init();
+        highscoreText.setText("Highscore: " + String.valueOf(EvDatabaseManager.getInstance().getMaxScore()));
         startButton.setFocusTraversable(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), startButton);
         fadeTransition.setFromValue(1.0);

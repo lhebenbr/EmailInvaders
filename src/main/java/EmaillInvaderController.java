@@ -491,6 +491,9 @@ public class EmaillInvaderController {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("GameOverView.fxml"));
             Parent gameOverRoot = loader.load();
+            if(EvGameManager.getInstance().getScore() > EvDatabaseManager.getInstance().getMaxScore()) {
+                EvDatabaseManager.getInstance().insert(EvGameManager.getInstance().getScore());
+            }
             EvGameManager.getInstance().setCurrentScene(new Scene(gameOverRoot));
 
 

@@ -13,6 +13,8 @@
 
     <Label text="Email Invaders" layoutX="450.0" layoutY="100.0" style="-fx-font-size: 80px; -fx-text-fill: yellow;"
            styleClass="custom-font"/>
+    <Text fx:id="highscoreText" layoutX="650.0" layoutY="250.0" style="-fx-font-size: 50px; -fx-text-fill: yellow;"
+          styleClass="custom-font"/>
 
 
     <Button fx:id="startButton" layoutX="600.0" layoutY="480.0" mnemonicParsing="false" text="Start Game"
