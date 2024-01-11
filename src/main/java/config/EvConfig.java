@@ -1,7 +1,5 @@
 package config;
 
-import javafx.scene.Scene;
-
 public final class EvConfig {
     private EvConfig() {
     }
@@ -27,7 +25,7 @@ public final class EvConfig {
     public static final int BULLET_HEIGHT = 20;
     public static final double BULLET_SPEED = 13;
     public static final int HEART_X = 1860;
-    public static final int HEART_Y = 20;
+    public static final int HEART_Y = 10;
     public static final int HEART_WIDTH = 40;
     public static final int HEART_HEIGHT = 40;
     public static final int BONUS_MAIL_WIDTH = 60;
@@ -40,5 +38,4 @@ public final class EvConfig {
     public static final long BONUS_MAIL_SPAWN_TIME = 30_000_000_000L;
     public static final int EXPLOSION_WIDTH = 200;
     public static final int EXPLOSION_HEIGHT = 200;
-
 }

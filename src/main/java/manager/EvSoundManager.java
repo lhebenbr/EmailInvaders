@@ -27,10 +27,4 @@ public class EvSoundManager {
         sound.play();
     }
 
-    public void stopAllSounds() {
-        for (AudioClip sound : soundCache.values()) {
-            sound.stop();
-        }
-    }
-
 }

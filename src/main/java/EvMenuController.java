@@ -1,4 +1,3 @@
-import config.EvConfig;
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -55,9 +54,8 @@ public class EvMenuController {
             Parent gameRoot = loader.load();
             Scene gameScene = new Scene(gameRoot);
             Stage stage = (Stage) startButton.getScene().getWindow();
-            EvGameManager.getInstance().setCurrentScene(gameScene);
 
-            stage.setScene(EvGameManager.getInstance().getCurrentScene());
+            stage.setScene(gameScene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,6 +64,7 @@ public class EvMenuController {
 
     @FXML
     private void onExitButtonClicked() {
-        EvGameManager.getInstance().fireEvent();
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        EvGameManager.exitGame(stage);
     }
 }

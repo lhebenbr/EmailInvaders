@@ -1,14 +1,12 @@
 package manager;
 
 import event.EmailInvadersExit;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 
 public class EvGameManager {
     private int score;
-    private Scene currentScene;
     private static EvGameManager instance;
 
     public static EvGameManager getInstance() {
@@ -33,18 +31,10 @@ public class EvGameManager {
         this.score += score;
     }
 
-    public Scene getCurrentScene() {
-        return currentScene;
-    }
-
-    public void setCurrentScene(Scene currentScene) {
-        this.currentScene = currentScene;
-    }
-
-    public void fireEvent() {
+    public static void exitGame(Stage stage) {
         EmailInvadersExit exitEvent = new EmailInvadersExit();
-        EvSoundManager.getInstance().stopAllSounds();
-        WindowEvent.fireEvent(this.getCurrentScene(),exitEvent);
+        stage.fireEvent(exitEvent);
+        stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 
 }

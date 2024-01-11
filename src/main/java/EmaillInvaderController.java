@@ -494,12 +494,12 @@ public class EmaillInvaderController {
             if(EvGameManager.getInstance().getScore() > EvDatabaseManager.getInstance().getMaxScore()) {
                 EvDatabaseManager.getInstance().insert(EvGameManager.getInstance().getScore());
             }
-            EvGameManager.getInstance().setCurrentScene(new Scene(gameOverRoot));
 
+            Scene gameOverScene = new Scene(gameOverRoot);
 
             Stage stage = (Stage) gameCanvas.getScene().getWindow();
 
-            stage.setScene(EvGameManager.getInstance().getCurrentScene());
+            stage.setScene(gameOverScene);
             stage.show();
         } catch (Exception e) {
             //
