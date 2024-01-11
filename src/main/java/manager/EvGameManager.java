@@ -1,7 +1,6 @@
 package manager;
 
 import event.EmailInvadersExit;
-import javafx.event.Event;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -11,7 +10,6 @@ public class EvGameManager {
     private int score;
     private Scene currentScene;
     private static EvGameManager instance;
-    public static Scene DUMMY_SCENE;
 
     public static EvGameManager getInstance() {
         if (instance == null) {
@@ -46,11 +44,7 @@ public class EvGameManager {
     public void fireEvent() {
         EmailInvadersExit exitEvent = new EmailInvadersExit();
         EvSoundManager.getInstance().stopAllSounds();
-        try {
-            Event.fireEvent(DUMMY_SCENE,exitEvent);
-        } catch (NullPointerException e) {
-           System.out.println("DUMMY_SCENE ist nötig für Integration");
-        }
+        WindowEvent.fireEvent(this.getCurrentScene(),exitEvent);
     }
 
 }
